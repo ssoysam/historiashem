@@ -9,6 +9,7 @@
 <body>
   <main class="app">
 
+    <!-- Portada -->
     <section class="screen active" id="cover">
       <div class="cover-content">
         <p class="tiny reveal delay-1">UNA HISTORIA</p>
@@ -18,13 +19,46 @@
       </div>
     </section>
 
+    <!-- Biblioteca / inicio -->
+    <section class="screen" id="home">
+      <div class="home-content">
+        <p class="tiny">BIBLIOTECA</p>
+        <h2>Nuestros capítulos</h2>
+        <p class="intro-text">
+          Un lugar para guardar lo que somos, poquito a poquito.
+        </p>
+
+        <div class="library">
+          <button class="chapter-card" id="openChapterOne">
+            <span class="chapter-number">I</span>
+            <span class="chapter-info">
+              <span class="chapter-title">Capítulo I</span>
+              <span class="chapter-desc">Un mes contigo</span>
+            </span>
+          </button>
+
+          <button class="chapter-card locked">
+            <span class="chapter-number">II</span>
+            <span class="chapter-info">
+              <span class="chapter-title">Capítulo II</span>
+              <span class="chapter-desc">Próximamente</span>
+            </span>
+          </button>
+        </div>
+
+        <button class="secondary-btn" id="openRouletteBtn">Abrir ruleta</button>
+      </div>
+    </section>
+
+    <!-- Capítulo I -->
     <section class="screen" id="chapter">
-      <div class="chapter-header">
+      <div class="topbar">
+        <button class="ghost-btn" id="backHomeFromChapter">← Biblioteca</button>
         <p class="tiny">CAPÍTULO I</p>
       </div>
 
       <article class="page active-page" id="pageOne">
-        <p class="eyebrow">Pag. I</p>
+        <p class="eyebrow">Hoja I</p>
         <h2>Un mes contigo</h2>
 
         <p>
@@ -49,21 +83,21 @@
         </p>
 
         <p>
-          Gracias por este primer mes, amorcito. Gracias por tu forma de ser, por tu cariño,
+          Gracias por este primer mes, Lu. Gracias por tu forma de ser, por tu cariño,
           por tu risa, por tu compañía y por hacerme sentir que estar contigo es uno
           de mis lugares favoritos.
         </p>
 
-        <button class="btn" id="nextPageBtn">Siguiente pagina</button>
+        <button class="btn" id="nextPageBtn">Siguiente hoja</button>
       </article>
 
       <article class="page" id="pageTwo">
-        <p class="eyebrow">Pag. II</p>
+        <p class="eyebrow">Hoja II</p>
         <h2>Una idea para nosotros</h2>
 
         <p>
           Estuve pensando en nuestros cumplemes, y no quiero que sean solamente fechas
-          o momentos.
+          o regalos.
         </p>
 
         <p>
@@ -72,7 +106,7 @@
         </p>
 
         <p>
-          Un mes podría ser de arte. Otro de astronomia. Otro fitness, de películas,
+          Un mes podría ser de arte. Otro de naturaleza. Otro de comida, de películas,
           de fotos, de cualquier cosa que se nos ocurra.
         </p>
 
@@ -90,8 +124,40 @@
           una historia SHEM, escrita poquito a poquito por los dos.
         </p>
 
-        <button class="btn" id="restartBtn">Volver al inicio</button>
+        <button class="btn" id="prevPageBtn">Volver a la hoja anterior</button>
       </article>
+    </section>
+
+    <!-- Ruleta -->
+    <section class="screen" id="roulette">
+      <div class="topbar">
+        <button class="ghost-btn" id="backHomeFromRoulette">← Biblioteca</button>
+        <p class="tiny">RULETA SHEM</p>
+      </div>
+
+      <div class="roulette-layout">
+        <div class="wheel-wrap">
+          <div class="pointer"></div>
+          <canvas id="wheel" width="360" height="360"></canvas>
+        </div>
+
+        <div class="roulette-panel">
+          <h2>¿Qué hacemos?</h2>
+          <p class="intro-text">
+            Escriban sus opciones, una por línea, y dejen que SHEM decida.
+          </p>
+
+          <textarea id="optionsInput" rows="7">Museo
+Café
+Cine
+Pintar algo
+Caminar
+Pizza</textarea>
+
+          <button class="btn" id="spinBtn">Girar ruleta</button>
+          <p class="result" id="resultText">El resultado aparecerá aquí.</p>
+        </div>
+      </div>
     </section>
 
   </main>
