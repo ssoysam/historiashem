@@ -8,6 +8,7 @@
   --muted: #a8a39b;
   --line: rgba(255, 255, 255, 0.14);
   --glass: rgba(255, 255, 255, 0.045);
+  --glass-strong: rgba(255, 255, 255, 0.075);
 }
 
 html, body {
@@ -47,8 +48,14 @@ body {
   text-align: center;
 }
 
-.cover-content {
-  width: min(620px, 100%);
+.cover-content,
+.home-content {
+  width: min(720px, 100%);
+}
+
+#home {
+  align-items: center;
+  justify-content: center;
 }
 
 .tiny {
@@ -57,6 +64,7 @@ body {
   font-size: 12px;
   font-weight: 500;
   margin: 0;
+  text-transform: uppercase;
 }
 
 .brand {
@@ -85,6 +93,13 @@ body {
 .delay-3 { animation-delay: 2.0s; }
 .delay-4 { animation-delay: 2.8s; }
 
+.btn,
+.secondary-btn,
+.ghost-btn,
+.chapter-card {
+  font-family: inherit;
+}
+
 .btn {
   appearance: none;
   border: 1px solid rgba(255,255,255,0.25);
@@ -99,25 +114,112 @@ body {
   transition: transform 180ms ease, background 180ms ease;
 }
 
-.btn:active {
-  transform: scale(0.97);
+.btn:active,
+.secondary-btn:active,
+.ghost-btn:active,
+.chapter-card:active {
+  transform: scale(0.98);
 }
 
-#chapter {
+.secondary-btn {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  border-radius: 22px;
+  padding: 16px 18px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 16px;
+}
+
+.ghost-btn {
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.03);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#chapter,
+#roulette {
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 22px;
 }
 
-.chapter-header {
-  width: min(720px, 100%);
+.topbar {
+  width: min(820px, 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
   padding-top: 8px;
+}
+
+.library {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.chapter-card {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, var(--glass), rgba(255,255,255,0.018));
+  color: var(--text);
+  border-radius: 28px;
+  padding: 22px;
+  text-align: left;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  cursor: pointer;
+  transition: border 200ms ease, background 200ms ease;
+}
+
+.chapter-card:hover {
+  border-color: rgba(255,255,255,0.26);
+  background: var(--glass-strong);
+}
+
+.chapter-card.locked {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.chapter-number {
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  font-weight: 300;
+}
+
+.chapter-info {
+  display: grid;
+  gap: 5px;
+}
+
+.chapter-title {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.chapter-desc {
+  color: var(--muted);
+  font-size: 15px;
 }
 
 .page {
   display: none;
-  width: min(720px, 100%);
+  width: min(820px, 100%);
   border: 1px solid var(--line);
   background: linear-gradient(180deg, var(--glass), rgba(255,255,255,0.018));
   border-radius: 30px;
@@ -153,8 +255,77 @@ p {
   margin: 0 0 24px;
 }
 
+.intro-text {
+  color: var(--muted);
+  margin-top: 14px;
+}
+
 .closing {
   color: #fff;
+}
+
+.roulette-layout {
+  width: min(920px, 100%);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.wheel-wrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+canvas {
+  width: min(360px, 88vw);
+  height: min(360px, 88vw);
+  filter: drop-shadow(0 30px 55px rgba(0,0,0,0.55));
+}
+
+.pointer {
+  position: absolute;
+  top: -4px;
+  width: 0;
+  height: 0;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-top: 30px solid var(--text);
+  z-index: 2;
+}
+
+.roulette-panel {
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, var(--glass), rgba(255,255,255,0.018));
+  border-radius: 30px;
+  padding: clamp(26px, 6vw, 44px);
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 160px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: rgba(0,0,0,0.35);
+  color: var(--text);
+  padding: 18px;
+  font-size: 16px;
+  line-height: 1.5;
+  outline: none;
+}
+
+.result {
+  color: var(--text);
+  font-size: clamp(20px, 5vw, 28px);
+  margin-top: 22px;
+}
+
+@media (min-width: 860px) {
+  .roulette-layout {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
 }
 
 @keyframes reveal {
