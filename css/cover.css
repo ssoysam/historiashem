@@ -1,0 +1,38 @@
+#cover {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 12%, rgba(255,255,255,0.08), transparent 32%),
+    #050505;
+}
+
+.cover-content {
+  width: min(720px, 100%);
+}
+
+.brand {
+  font-size: clamp(66px, 20vw, 140px);
+  font-weight: 500;
+  letter-spacing: -0.08em;
+  margin: 18px 0 12px;
+  line-height: 0.9;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 16px;
+  margin: 0 0 44px;
+  letter-spacing: 0.08em;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: reveal 1.2s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.4s; }
+.delay-2 { animation-delay: 1.2s; }
+.delay-3 { animation-delay: 2.0s; }
+.delay-4 { animation-delay: 2.8s; }

@@ -1,0 +1,79 @@
+#roulette {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 22px;
+  background:
+    radial-gradient(circle at 50% 12%, rgba(255,255,255,0.07), transparent 32%),
+    #050505;
+}
+
+.roulette-layout {
+  width: min(920px, 100%);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.wheel-wrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+canvas {
+  width: min(360px, 88vw);
+  height: min(360px, 88vw);
+  filter: drop-shadow(0 30px 55px rgba(0,0,0,0.55));
+}
+
+.pointer {
+  position: absolute;
+  top: -4px;
+  width: 0;
+  height: 0;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-top: 30px solid var(--text);
+  z-index: 2;
+}
+
+.roulette-panel {
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, var(--glass), rgba(255,255,255,0.018));
+  border-radius: 30px;
+  padding: clamp(26px, 6vw, 44px);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 28px 90px rgba(0,0,0,0.42),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 160px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: rgba(0,0,0,0.35);
+  color: var(--text);
+  padding: 18px;
+  font-size: 16px;
+  line-height: 1.5;
+  outline: none;
+}
+
+.result {
+  color: var(--text);
+  font-size: clamp(20px, 5vw, 28px);
+  margin-top: 22px;
+}
+
+@media (min-width: 860px) {
+  .roulette-layout {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+}

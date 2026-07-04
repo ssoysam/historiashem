@@ -3,30 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Una historia SHEM</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>SHEMLUM</title>
+
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/cover.css" />
+  <link rel="stylesheet" href="css/library.css" />
+  <link rel="stylesheet" href="css/chapter1.css" />
+  <link rel="stylesheet" href="css/roulette.css" />
 </head>
 <body>
   <main class="app">
 
-    <!-- Portada -->
     <section class="screen active" id="cover">
       <div class="cover-content">
-        <p class="tiny reveal delay-1">EL PACTO DE LA LUNA Y EL TIEMPO</p>
+        <p class="tiny reveal delay-1">UNA HISTORIA</p>
         <h1 class="brand reveal delay-2">SHEMLUM</h1>
         <p class="subtitle reveal delay-3">Samuel · Lupita</p>
         <button class="btn reveal delay-4" id="enterBtn">Entrar</button>
       </div>
     </section>
 
-    <!-- Biblioteca / inicio -->
     <section class="screen" id="home">
       <div class="home-content">
-        <p class="tiny">INICIO</p>
+        <p class="tiny">BIBLIOTECA</p>
         <h2>Nuestros capítulos</h2>
-        <p class="intro-text">
-          Un lugar para guardar lo que somos, poquito a poquito.
-        </p>
+        <p class="intro-text">Un lugar para guardar lo que somos, poquito a poquito.</p>
 
         <div class="library">
           <button class="chapter-card" id="openChapterOne">
@@ -50,15 +51,18 @@
       </div>
     </section>
 
-    <!-- Capítulo I -->
-    <section class="screen" id="chapter">
+    <section class="screen chapter-theme-blue" id="chapter">
+      <div class="chapter-decor butterfly-one">🦋</div>
+      <div class="chapter-decor bee-one">🐝</div>
+      <div class="chapter-decor ladybug-one">🐞</div>
+
       <div class="topbar">
-        <button class="ghost-btn" id="backHomeFromChapter">← Inicio</button>
+        <button class="ghost-btn" id="backHomeFromChapter">← Biblioteca</button>
         <p class="tiny">CAPÍTULO I</p>
       </div>
 
       <article class="page active-page" id="pageOne">
-        <p class="eyebrow">Pag. I</p>
+        <p class="eyebrow">Hoja I</p>
         <h2>Un mes contigo</h2>
 
         <p>
@@ -83,21 +87,21 @@
         </p>
 
         <p>
-          Gracias por este primer mes, amorcito. Gracias por tu forma de ser, por tu cariño,
+          Gracias por este primer mes, Lu. Gracias por tu forma de ser, por tu cariño,
           por tu risa, por tu compañía y por hacerme sentir que estar contigo es uno
           de mis lugares favoritos.
         </p>
 
-        <button class="btn" id="nextPageBtn">Siguiente pagina</button>
+        <button class="btn chapter-btn" id="nextPageBtn">Siguiente hoja</button>
       </article>
 
       <article class="page" id="pageTwo">
-        <p class="eyebrow">Pag. II</p>
+        <p class="eyebrow">Hoja II</p>
         <h2>Una idea para nosotros</h2>
 
         <p>
           Estuve pensando en nuestros cumplemes, y no quiero que sean solamente fechas
-          o momentos.
+          o regalos.
         </p>
 
         <p>
@@ -106,7 +110,7 @@
         </p>
 
         <p>
-          Un mes podría ser de arte. Otro de astronomia. El mes fit, de películas,
+          Un mes podría ser de arte. Otro de naturaleza. Otro de comida, de películas,
           de fotos, de cualquier cosa que se nos ocurra.
         </p>
 
@@ -121,18 +125,17 @@
 
         <p class="closing">
           Y si tú quieres, esta puede ser nuestra forma de guardar lo que somos:
-          una historia SHEM, escrita poquito a poquito por los dos.
+          una historia SHEMLUM, escrita poquito a poquito por los dos.
         </p>
 
-        <button class="btn" id="prevPageBtn">Pagina anterior</button>
+        <button class="btn chapter-btn" id="prevPageBtn">Volver a la hoja anterior</button>
       </article>
     </section>
 
-    <!-- Ruleta -->
     <section class="screen" id="roulette">
       <div class="topbar">
-        <button class="ghost-btn" id="backHomeFromRoulette">← Inicio</button>
-        <p class="tiny">RULETA SHEM</p>
+        <button class="ghost-btn" id="backHomeFromRoulette">← Biblioteca</button>
+        <p class="tiny">RULETA SHEMLUM</p>
       </div>
 
       <div class="roulette-layout">
@@ -143,9 +146,7 @@
 
         <div class="roulette-panel">
           <h2>¿Qué hacemos?</h2>
-          <p class="intro-text">
-            tambien podemos darnos un besito.
-          </p>
+          <p class="intro-text">Escriban sus opciones, una por línea, y dejen que SHEMLUM decida.</p>
 
           <textarea id="optionsInput" rows="7">Museo
 Café
@@ -162,6 +163,7 @@ Pizza</textarea>
 
   </main>
 
-  <script src="script.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/roulette.js"></script>
 </body>
 </html>
