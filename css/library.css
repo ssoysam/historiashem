@@ -7,28 +7,45 @@
 }
 
 .home-content {
-  width: min(720px, 100%);
+  width: min(760px, 100%);
 }
 
+/* Biblioteca en recuadros/cards */
 .library {
   display: grid;
-  gap: 14px;
-  margin-top: 28px;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+/* En pantallas más grandes se acomoda en 2 columnas */
+@media (min-width: 680px) {
+  .library {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .chapter-card {
   width: 100%;
+  min-height: 190px;
   border: 1px solid var(--line);
-  background: linear-gradient(180deg, var(--glass), rgba(255,255,255,0.018));
+  background:
+    radial-gradient(circle at 82% 16%, rgba(255,255,255,0.08), transparent 34%),
+    linear-gradient(180deg, var(--glass), rgba(255,255,255,0.018));
   color: var(--text);
-  border-radius: 28px;
-  padding: 22px;
+  border-radius: 30px;
+  padding: 24px;
   text-align: left;
   display: flex;
-  gap: 18px;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
   cursor: pointer;
-  transition: border 200ms ease, background 200ms ease, transform 200ms ease;
+  transition:
+    border 200ms ease,
+    background 200ms ease,
+    transform 200ms ease,
+    box-shadow 200ms ease;
   backdrop-filter: blur(18px);
   box-shadow:
     0 24px 70px rgba(0,0,0,0.32),
@@ -36,9 +53,14 @@
 }
 
 .chapter-card:hover {
-  border-color: rgba(255,255,255,0.26);
-  background: var(--glass-strong);
-  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.28);
+  background:
+    radial-gradient(circle at 82% 16%, rgba(255,255,255,0.12), transparent 34%),
+    var(--glass-strong);
+  transform: translateY(-3px);
+  box-shadow:
+    0 30px 90px rgba(0,0,0,0.42),
+    inset 0 1px 0 rgba(255,255,255,0.12);
 }
 
 .chapter-card.locked {
@@ -46,9 +68,17 @@
   cursor: default;
 }
 
+.chapter-card.locked:hover {
+  transform: none;
+  border-color: var(--line);
+  background:
+    radial-gradient(circle at 82% 16%, rgba(255,255,255,0.08), transparent 34%),
+    linear-gradient(180deg, var(--glass), rgba(255,255,255,0.018));
+}
+
 .chapter-number {
-  width: 52px;
-  height: 52px;
+  width: 54px;
+  height: 54px;
   border: 1px solid var(--line);
   border-radius: 18px;
   display: grid;
@@ -56,19 +86,26 @@
   font-size: 26px;
   font-weight: 300;
   background: rgba(255,255,255,0.045);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
 }
 
 .chapter-info {
   display: grid;
-  gap: 5px;
+  gap: 8px;
 }
 
 .chapter-title {
-  font-size: 22px;
-  font-weight: 560;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
 }
 
 .chapter-desc {
   color: var(--muted);
   font-size: 15px;
+}
+
+/* Botón de ruleta debajo de los recuadros */
+.secondary-btn {
+  margin-top: 18px;
 }
