@@ -45,7 +45,18 @@ function drawWheel(rotation = currentRotation) {
     ctx.arc(0, 0, radius, start, end);
     ctx.closePath();
 
-    ctx.fillStyle = index % 2 === 0 ? "#f7f4ee" : "#c9c2b7";
+    const pastelColors = [
+  "#F7D6E0", // rosa pastel
+  "#D6EAF8", // azul pastel
+  "#D8F3DC", // verde pastel
+  "#FFF3B0", // amarillo pastel
+  "#E7D8FF", // lila pastel
+  "#FFD6A5", // durazno pastel
+  "#CDE7F0", // azul grisáceo
+  "#FDE2E4"  // rosa claro
+];
+
+ctx.fillStyle = pastelColors[index % pastelColors.length];
     ctx.fill();
 
     ctx.save();
