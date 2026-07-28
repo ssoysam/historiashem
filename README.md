@@ -1,17 +1,12 @@
 # SHEMLUM
 
-Estructura profesional inicial del proyecto.
+Versión integrada basada en el proyecto original.
 
-## Carpetas
+Incluye:
+- Portada
+- Inicio
+- Capítulo I
+- Capítulo II: Océano
+- Ruleta
 
-- `css/global.css`: estilos generales.
-- `css/cover.css`: portada minimalista negro/blanco.
-- `css/library.css`: biblioteca de capítulos.
-- `css/chapter1.css`: tema azul con mariposa, abejita y mariquita solo para Capítulo I.
-- `css/roulette.css`: estilo de la ruleta.
-- `js/app.js`: navegación.
-- `js/roulette.js`: lógica de la ruleta.
-
-## Importante
-
-Ahora el estilo azul solo afecta a la sección `#chapter` con la clase `chapter-theme-blue`.
+Para publicar, copia el contenido de esta carpeta dentro del repositorio local `historiashem`, conservando su carpeta oculta `.git`.
