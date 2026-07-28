@@ -5,6 +5,67 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!chapter) return;
 
+  const bubbleField = document.getElementById("bubbleField");
+  const glowField = document.getElementById("oceanGlowParticles");
+  const openLetterButton = document.getElementById("openOceanLetter");
+  const letterModal = document.getElementById("oceanLetterModal");
+  const closeLetterButton = document.getElementById("closeOceanLetter");
+  const closeLetterBackdrop = document.getElementById("closeOceanLetterBackdrop");
+
+  function createOceanLife() {
+    if (bubbleField && !bubbleField.children.length) {
+      for (let i = 0; i < 22; i += 1) {
+        const bubble = document.createElement("span");
+        bubble.className = "bubble";
+        bubble.style.setProperty("--left", `${Math.random() * 100}%`);
+        bubble.style.setProperty("--size", `${5 + Math.random() * 18}px`);
+        bubble.style.setProperty("--duration", `${10 + Math.random() * 16}s`);
+        bubble.style.setProperty("--delay", `${-Math.random() * 22}s`);
+        bubble.style.setProperty("--drift", `${-35 + Math.random() * 70}px`);
+        bubbleField.appendChild(bubble);
+      }
+    }
+
+    if (glowField && !glowField.children.length) {
+      for (let i = 0; i < 28; i += 1) {
+        const particle = document.createElement("span");
+        particle.className = "glow-particle";
+        particle.style.setProperty("--left", `${Math.random() * 100}%`);
+        particle.style.setProperty("--top", `${18 + Math.random() * 78}%`);
+        particle.style.setProperty("--size", `${2 + Math.random() * 4}px`);
+        particle.style.setProperty("--duration", `${5 + Math.random() * 8}s`);
+        particle.style.setProperty("--delay", `${-Math.random() * 10}s`);
+        particle.style.setProperty("--drift", `${-20 + Math.random() * 40}px`);
+        glowField.appendChild(particle);
+      }
+    }
+  }
+
+  function openLetter() {
+    if (!letterModal) return;
+    letterModal.classList.add("is-open");
+    letterModal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("ocean-letter-open");
+    closeLetterButton?.focus();
+  }
+
+  function closeLetter() {
+    if (!letterModal) return;
+    letterModal.classList.remove("is-open");
+    letterModal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("ocean-letter-open");
+    openLetterButton?.focus();
+  }
+
+  openLetterButton?.addEventListener("click", openLetter);
+  closeLetterButton?.addEventListener("click", closeLetter);
+  closeLetterBackdrop?.addEventListener("click", closeLetter);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && letterModal?.classList.contains("is-open")) closeLetter();
+  });
+
+  createOceanLife();
+
   const root = chapter;
   const finePointer = window.matchMedia("(pointer: fine)").matches;
   const hasOrientation = "DeviceOrientationEvent" in window;

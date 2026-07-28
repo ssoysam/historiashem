@@ -293,3 +293,156 @@
     transform: none;
   }
 }
+
+
+/* VIDA DEL OCÉANO */
+.ocean-glow-particles,
+.bubble-field,
+.fish-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ocean-glow-particles { z-index: 4; }
+.bubble-field { z-index: 5; }
+.fish-layer { z-index: 3; }
+
+.glow-particle {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  left: var(--left);
+  top: var(--top);
+  border-radius: 50%;
+  background: rgba(190, 244, 255, .95);
+  box-shadow: 0 0 8px rgba(132, 232, 255, .9), 0 0 22px rgba(69, 200, 255, .62);
+  opacity: 0;
+  animation: glowDrift var(--duration) ease-in-out var(--delay) infinite;
+}
+
+.bubble {
+  position: absolute;
+  left: var(--left);
+  bottom: -50px;
+  width: var(--size);
+  height: var(--size);
+  border: 1px solid rgba(224, 250, 255, .55);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.48), rgba(255,255,255,.07) 34%, transparent 66%);
+  box-shadow: inset -2px -3px 7px rgba(88, 190, 224, .18), 0 0 8px rgba(195, 244, 255, .12);
+  opacity: 0;
+  animation: bubbleRise var(--duration) linear var(--delay) infinite;
+}
+
+.fish {
+  position: absolute;
+  left: -90px;
+  width: 48px;
+  height: 21px;
+  border-radius: 55% 48% 48% 55%;
+  background: linear-gradient(90deg, rgba(10,61,84,.5), rgba(94,183,205,.75));
+  filter: drop-shadow(0 4px 9px rgba(0,18,31,.28));
+  opacity: calc(.2 + var(--ocean-depth) * .55);
+  animation: fishCross var(--fish-speed) linear var(--fish-delay) infinite;
+}
+
+.fish::before {
+  content: "";
+  position: absolute;
+  right: -15px;
+  top: 2px;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 17px solid rgba(50,139,167,.66);
+}
+
+.fish::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 6px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(231,252,255,.9);
+}
+
+.fish i {
+  position: absolute;
+  left: 19px;
+  top: -7px;
+  width: 16px;
+  height: 11px;
+  border-radius: 80% 20% 50% 0;
+  background: rgba(80,168,194,.48);
+  transform: rotate(-12deg);
+}
+
+.fish-two, .fish-four { transform: scale(.68); filter: blur(.4px); }
+.fish-three { transform: scale(1.22); }
+.fish-one { top: 30%; --fish-speed: 24s; --fish-delay: -4s; }
+.fish-two { top: 45%; --fish-speed: 31s; --fish-delay: -17s; }
+.fish-three { top: 65%; --fish-speed: 28s; --fish-delay: -11s; }
+.fish-four { top: 78%; --fish-speed: 36s; --fish-delay: -27s; }
+.fish-five { top: 55%; --fish-speed: 33s; --fish-delay: -7s; transform: scale(.82); }
+
+/* BOTELLA */
+.ocean-treasure-copy { display: grid; justify-items: center; }
+
+.message-bottle {
+  position: relative;
+  width: 112px;
+  height: 230px;
+  margin-top: 32px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  transform: rotate(-8deg);
+  filter: drop-shadow(0 20px 30px rgba(0,5,12,.45));
+  animation: bottleFloat 4.2s ease-in-out infinite;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.message-bottle:hover { filter: drop-shadow(0 20px 32px rgba(0,5,12,.55)) brightness(1.08); }
+.message-bottle:active { transform: rotate(-8deg) scale(.96); }
+.bottle-cork { position:absolute; top:0; left:39px; width:34px; height:25px; border-radius:5px 5px 3px 3px; background:linear-gradient(90deg,#8a5735,#c08a58 48%,#815033); box-shadow:inset 0 3px rgba(255,255,255,.16); z-index:3; }
+.bottle-neck { position:absolute; top:20px; left:36px; width:40px; height:58px; border:3px solid rgba(191,244,248,.68); border-bottom:0; border-radius:8px 8px 0 0; background:rgba(124,215,222,.14); }
+.bottle-glass { position:absolute; left:13px; bottom:0; width:86px; height:168px; border:3px solid rgba(196,246,250,.64); border-radius:35px 35px 25px 25px; background:linear-gradient(110deg,rgba(255,255,255,.24),rgba(105,214,222,.08) 35%,rgba(4,77,96,.2)); box-shadow:inset 10px 0 22px rgba(255,255,255,.09), inset -10px -8px 24px rgba(0,57,72,.22); overflow:hidden; }
+.bottle-letter { position:absolute; left:18px; top:37px; width:50px; height:84px; border-radius:4px; background:linear-gradient(90deg,#e9dec5,#fff7df 45%,#d8c9a9); transform:rotate(5deg); box-shadow:0 4px 12px rgba(0,26,33,.28); }
+.bottle-letter::before,.bottle-letter::after { content:""; position:absolute; left:9px; right:9px; height:1px; background:rgba(110,84,60,.35); box-shadow:0 9px rgba(110,84,60,.3),0 18px rgba(110,84,60,.28),0 27px rgba(110,84,60,.25); }
+.bottle-letter::before { top:20px; }
+.bottle-letter::after { top:56px; }
+.bottle-shine { position:absolute; left:15px; top:16px; width:9px; height:104px; border-radius:50%; background:linear-gradient(to bottom,rgba(255,255,255,.54),transparent); transform:rotate(8deg); }
+
+/* CARTA */
+.ocean-letter-modal { position:fixed; inset:0; z-index:100; display:grid; place-items:center; padding:22px; opacity:0; visibility:hidden; transition:opacity .35s ease,visibility .35s ease; }
+.ocean-letter-modal.is-open { opacity:1; visibility:visible; }
+.letter-backdrop { position:absolute; inset:0; border:0; background:rgba(0,10,18,.72); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); }
+.ocean-letter { position:relative; z-index:1; width:min(100%,580px); max-height:min(82vh,720px); overflow:auto; border-radius:8px; padding:clamp(30px,7vw,58px); color:#3c3028; background:linear-gradient(135deg,#fff9e9,#eadfc5); box-shadow:0 30px 100px rgba(0,0,0,.48); transform:translateY(24px) scale(.97); transition:transform .4s ease; font-family:Georgia,"Times New Roman",serif; }
+.ocean-letter-modal.is-open .ocean-letter { transform:translateY(0) scale(1); }
+.ocean-letter::before { content:""; position:absolute; inset:12px; border:1px solid rgba(92,69,49,.18); pointer-events:none; }
+.letter-close { position:absolute; top:14px; right:16px; width:38px; height:38px; border:0; border-radius:50%; color:#4e3c30; background:rgba(83,58,41,.08); font-size:28px; line-height:1; cursor:pointer; }
+.letter-date { margin:0 0 16px; font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif; font-size:10px; letter-spacing:.24em; color:#8a7564; }
+.ocean-letter h2 { margin:0 0 27px; font-family:Georgia,"Times New Roman",serif; font-size:clamp(34px,8vw,52px); line-height:1; color:#3b2d25; letter-spacing:-.04em; }
+.letter-body p { margin:0 0 18px; color:#514036; font-family:Georgia,"Times New Roman",serif; font-size:clamp(17px,4.2vw,20px); line-height:1.75; }
+.letter-signature { margin:30px 0 0; color:#4e3b30; font-family:Georgia,"Times New Roman",serif; font-size:18px; line-height:1.6; }
+body.ocean-letter-open { overflow:hidden; }
+
+@keyframes glowDrift { 0%,100%{opacity:0;transform:translate3d(0,16px,0) scale(.7)} 25%,70%{opacity:.85} 50%{transform:translate3d(var(--drift),-22px,0) scale(1)} }
+@keyframes bubbleRise { 0%{opacity:0;transform:translate3d(0,0,0) scale(.7)} 10%{opacity:.7} 85%{opacity:.5} 100%{opacity:0;transform:translate3d(var(--drift),-115vh,0) scale(1.15)} }
+@keyframes fishCross { 0%{left:-100px;transform:translateY(0) scale(var(--scale,1))} 45%{transform:translateY(-12px) scale(var(--scale,1))} 100%{left:calc(100% + 110px);transform:translateY(8px) scale(var(--scale,1))} }
+@keyframes bottleFloat { 0%,100%{transform:translateY(0) rotate(-8deg)} 50%{transform:translateY(-14px) rotate(-4deg)} }
+
+@media (max-width: 520px) {
+  .fish { opacity: calc(.14 + var(--ocean-depth) * .5); }
+  .message-bottle { transform:scale(.88) rotate(-8deg); margin-top:18px; }
+  .ocean-letter-modal { padding:14px; }
+  .ocean-letter { max-height:86svh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow-particle,.bubble,.fish,.message-bottle { animation:none; }
+}

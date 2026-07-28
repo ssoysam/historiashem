@@ -139,6 +139,15 @@
         <div class="ocean-rays"></div>
         <div class="ocean-water"></div>
         <div class="ocean-particles"></div>
+        <div class="ocean-glow-particles" id="oceanGlowParticles"></div>
+        <div class="bubble-field" id="bubbleField"></div>
+        <div class="fish-layer" aria-hidden="true">
+          <span class="fish fish-one"><i></i></span>
+          <span class="fish fish-two"><i></i></span>
+          <span class="fish fish-three"><i></i></span>
+          <span class="fish fish-four"><i></i></span>
+          <span class="fish fish-five"><i></i></span>
+        </div>
         <div class="ocean-depth"></div>
         <div class="ocean-vignette"></div>
       </div>
@@ -188,12 +197,37 @@
         <section class="ocean-step ocean-step-quiet" aria-hidden="true"></section>
 
         <section class="ocean-step ocean-final">
-          <div class="ocean-copy">
+          <div class="ocean-copy ocean-treasure-copy">
             <p class="ocean-kicker">EN LO PROFUNDO</p>
-            <h2>Gracias por ser mi lugar favorito, Lupita.</h2>
-            <p class="ocean-lead">Feliz segundo mes, amorcito.</p>
+            <h2>Encontré algo para ti.</h2>
+            <p class="ocean-lead">Toca la botella.</p>
+
+            <button class="message-bottle" id="openOceanLetter" type="button" aria-label="Abrir la carta dentro de la botella">
+              <span class="bottle-cork"></span>
+              <span class="bottle-neck"></span>
+              <span class="bottle-glass">
+                <span class="bottle-letter"></span>
+                <span class="bottle-shine"></span>
+              </span>
+            </button>
           </div>
         </section>
+      </div>
+
+      <div class="ocean-letter-modal" id="oceanLetterModal" aria-hidden="true">
+        <button class="letter-backdrop" id="closeOceanLetterBackdrop" type="button" aria-label="Cerrar carta"></button>
+        <article class="ocean-letter" role="dialog" aria-modal="true" aria-labelledby="oceanLetterTitle">
+          <button class="letter-close" id="closeOceanLetter" type="button" aria-label="Cerrar carta">×</button>
+          <p class="letter-date">CAPÍTULO II · DOS MESES</p>
+          <h2 id="oceanLetterTitle">Para ti, Lupita</h2>
+          <div class="letter-body">
+            <p>Dos meses quizá suenen a poco, pero contigo han sido suficientes para guardar un océano entero de momentos.</p>
+            <p>Me gusta la tranquilidad que encuentro a tu lado, la forma en que haces especial lo cotidiano y cómo, sin darnos cuenta, seguimos construyendo algo tan nuestro.</p>
+            <p>Gracias por tus risas, por tu cariño, por cada plática y por ser ese lugar al que siempre quiero volver.</p>
+            <p>Feliz segundo mes, amorcito. Te quiero muchísimo.</p>
+          </div>
+          <p class="letter-signature">Con amor,<br><strong>Samuel</strong></p>
+        </article>
       </div>
     </section>
 
@@ -230,6 +264,6 @@ Pizza</textarea>
 
   <script src="js/app.js?v=20260728"></script>
   <script src="js/roulette.js"></script>
-  <script src="js/chapter2.js?v=20260728"></script>
+  <script src="js/chapter2.js?v=20260728b"></script>
 </body>
 </html>
