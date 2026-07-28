@@ -20,17 +20,20 @@ const pageOne = document.getElementById("pageOne");
 const pageTwo = document.getElementById("pageTwo");
 
 let transitionInProgress = false;
+let transitionTimer = null;
 
 function goToScreen(current, next) {
-  if (!current || !next || current === next || transitionInProgress) return;
+  if (!current || !next || current === next) return;
 
+  if (transitionTimer) window.clearTimeout(transitionTimer);
   transitionInProgress = true;
   current.style.opacity = "0";
 
-  window.setTimeout(() => {
+  transitionTimer = window.setTimeout(() => {
     current.classList.remove("active");
     current.style.opacity = "";
     next.classList.add("active");
+    next.style.opacity = "1";
 
     if (next === screens.chapter2) {
       next.scrollTop = 0;
@@ -43,45 +46,57 @@ function goToScreen(current, next) {
       drawWheel();
     }
 
-    transitionInProgress = false;
-  }, 650);
+    requestAnimationFrame(() => {
+      next.style.opacity = "";
+      transitionInProgress = false;
+    });
+  }, 420);
 }
 
-enterBtn?.addEventListener("click", () => goToScreen(screens.cover, screens.home));
+function bindClick(element, handler) {
+  if (!element) return;
+  element.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    if (!transitionInProgress) handler();
+  });
+}
 
-openChapterOne?.addEventListener("click", () => {
+bindClick(enterBtn, () => goToScreen(screens.cover, screens.home));
+
+bindClick(openChapterOne, () => {
   pageOne?.classList.add("active-page");
   pageTwo?.classList.remove("active-page");
   goToScreen(screens.home, screens.chapter);
 });
 
-openChapterTwo?.addEventListener("click", () => {
+bindClick(openChapterTwo, () => {
   goToScreen(screens.home, screens.chapter2);
 });
 
-openRouletteBtn?.addEventListener("click", () => {
+bindClick(openRouletteBtn, () => {
   goToScreen(screens.home, screens.roulette);
 });
 
-backHomeFromChapter?.addEventListener("click", () => {
+bindClick(backHomeFromChapter, () => {
   goToScreen(screens.chapter, screens.home);
 });
 
-backHomeFromChapterTwo?.addEventListener("click", () => {
+bindClick(backHomeFromChapterTwo, () => {
   goToScreen(screens.chapter2, screens.home);
 });
 
-backHomeFromRoulette?.addEventListener("click", () => {
+bindClick(backHomeFromRoulette, () => {
   goToScreen(screens.roulette, screens.home);
 });
 
-nextPageBtn?.addEventListener("click", () => {
+bindClick(nextPageBtn, () => {
   pageOne?.classList.remove("active-page");
   pageTwo?.classList.add("active-page");
   window.scrollTo({ top: 0, behavior: "auto" });
 });
 
-prevPageBtn?.addEventListener("click", () => {
+bindClick(prevPageBtn, () => {
   pageTwo?.classList.remove("active-page");
   pageOne?.classList.add("active-page");
   window.scrollTo({ top: 0, behavior: "auto" });
