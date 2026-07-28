@@ -43,10 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function openLetter() {
     if (!letterModal) return;
+    const letterPaper = letterModal.querySelector(".ocean-letter");
+    if (letterPaper) letterPaper.scrollTop = 0;
+
     letterModal.classList.add("is-open");
     letterModal.setAttribute("aria-hidden", "false");
     document.body.classList.add("ocean-letter-open");
-    closeLetterButton?.focus();
+    closeLetterButton?.focus({ preventScroll: true });
   }
 
   function closeLetter() {

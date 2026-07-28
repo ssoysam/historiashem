@@ -446,3 +446,71 @@ body.ocean-letter-open { overflow:hidden; }
 @media (prefers-reduced-motion: reduce) {
   .glow-particle,.bubble,.fish,.message-bottle { animation:none; }
 }
+
+/* AJUSTE MÓVIL DE LA CARTA */
+.ocean-letter {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(78,60,48,.28) transparent;
+}
+
+.ocean-letter::-webkit-scrollbar { width: 4px; }
+.ocean-letter::-webkit-scrollbar-track { background: transparent; }
+.ocean-letter::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(78,60,48,.24);
+}
+
+@media (max-width: 520px) {
+  .ocean-letter-modal {
+    align-items: center;
+    padding: max(12px, env(safe-area-inset-top)) 12px max(12px, env(safe-area-inset-bottom));
+  }
+
+  .ocean-letter {
+    width: 100%;
+    max-height: calc(100dvh - 28px);
+    padding: 48px 28px 30px;
+    border-radius: 12px;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ocean-letter::before { inset: 10px; }
+
+  .letter-close {
+    position: sticky;
+    top: -38px;
+    z-index: 4;
+    float: right;
+    margin: -34px -14px 4px 12px;
+    width: 42px;
+    height: 42px;
+    background: rgba(83,58,41,.10);
+  }
+
+  .letter-date {
+    margin-bottom: 12px;
+    padding-right: 44px;
+    font-size: 9px;
+    line-height: 1.5;
+  }
+
+  .ocean-letter h2 {
+    margin-bottom: 22px;
+    font-size: clamp(36px, 11vw, 44px);
+    line-height: 1.02;
+  }
+
+  .letter-body p {
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.58;
+  }
+
+  .letter-signature {
+    margin-top: 22px;
+    padding-bottom: 4px;
+    font-size: 16px;
+    line-height: 1.45;
+  }
+}
