@@ -534,3 +534,27 @@ body.ocean-letter-open { overflow:hidden; }
     display: none;
   }
 }
+
+
+/* PARCHE DEFINITIVO DEL MARCO DE LA CARTA */
+.ocean-letter::before {
+  display: none !important;
+  content: none !important;
+}
+.ocean-letter {
+  box-sizing: border-box !important;
+  border: 1px solid rgba(92,69,49,.18) !important;
+  background-clip: padding-box;
+}
+@media (max-width: 520px) {
+  .ocean-letter {
+    width: calc(100% - 4px) !important;
+    padding-left: 28px !important;
+    padding-right: 28px !important;
+  }
+  .letter-body, .letter-body p, .letter-signature, .ocean-letter h2, .letter-date {
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+  }
+}
