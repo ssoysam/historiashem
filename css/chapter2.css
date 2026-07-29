@@ -514,3 +514,23 @@ body.ocean-letter-open { overflow:hidden; }
     line-height: 1.45;
   }
 }
+
+/* CORRECCIÓN FINAL: el marco no debe atravesar el texto al desplazar la carta */
+.ocean-letter {
+  box-sizing: border-box;
+}
+
+@media (max-width: 520px) {
+  .ocean-letter {
+    /* Sustituye el pseudo-elemento absoluto por un marco interno real. */
+    box-shadow:
+      inset 0 0 0 1px rgba(92,69,49,.18),
+      0 30px 100px rgba(0,0,0,.48);
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .ocean-letter::before {
+    display: none;
+  }
+}
