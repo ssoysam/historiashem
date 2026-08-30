@@ -101,4 +101,25 @@ typewriterSkip?.addEventListener("click", finishLetter);
 closeTypewriter?.addEventListener("click", resetChapterThree);
 
 window.resetChapterThree = resetChapterThree;
-\n\nfunction openChapterThreeMemories(){\n  stopTyping();\n  vintageIntro?.setAttribute("hidden", "");\n  typewriterStage?.classList.remove("active");\n  typewriterStage?.setAttribute("aria-hidden", "true");\n  memoryStage?.classList.add("active");\n  memoryStage?.setAttribute("aria-hidden", "false");\n  window.scrollTo({top:0, behavior:"smooth"});\n}\nfunction closeChapterThreeMemories(){\n  memoryStage?.classList.remove("active");\n  memoryStage?.setAttribute("aria-hidden", "true");\n  document.querySelectorAll("#memoryStage .memory-card.flipped").forEach(card=>card.classList.remove("flipped"));\n  vintageIntro?.removeAttribute("hidden");\n}\nopenMemories?.addEventListener("click", openChapterThreeMemories);\ncloseMemories?.addEventListener("click", closeChapterThreeMemories);\ndocument.querySelectorAll("#memoryStage .memory-card").forEach(card=>{\n  card.addEventListener("click", ()=>card.classList.toggle("flipped"));\n});\n
+
+
+function openChapterThreeMemories(){
+  stopTyping();
+  vintageIntro?.setAttribute("hidden", "");
+  typewriterStage?.classList.remove("active");
+  typewriterStage?.setAttribute("aria-hidden", "true");
+  memoryStage?.classList.add("active");
+  memoryStage?.setAttribute("aria-hidden", "false");
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+function closeChapterThreeMemories(){
+  memoryStage?.classList.remove("active");
+  memoryStage?.setAttribute("aria-hidden", "true");
+  document.querySelectorAll("#memoryStage .memory-card.flipped").forEach(card=>card.classList.remove("flipped"));
+  vintageIntro?.removeAttribute("hidden");
+}
+openMemories?.addEventListener("click", openChapterThreeMemories);
+closeMemories?.addEventListener("click", closeChapterThreeMemories);
+document.querySelectorAll("#memoryStage .memory-card").forEach(card=>{
+  card.addEventListener("click", ()=>card.classList.toggle("flipped"));
+});
