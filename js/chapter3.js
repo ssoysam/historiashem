@@ -123,3 +123,163 @@ closeMemories?.addEventListener("click", closeChapterThreeMemories);
 document.querySelectorAll("#memoryStage .memory-card").forEach(card=>{
   card.addEventListener("click", ()=>card.classList.toggle("flipped"));
 });
+
+// ===== Chapter III · Transiciones visuales vintage (sin sonido) =====
+const chapterThreeScreen = document.getElementById("chapter3");
+const vintageTransition = document.getElementById("vintageTransition");
+const vintageTransitionSlate = vintageTransition?.querySelector(".vintage-transition-slate");
+let chapterThreeWasActive = chapterThreeScreen?.classList.contains("active") || false;
+let vintageTransitionTimer = null;
+
+function setVintageSlate(topLine, mainLine) {
+  if (!vintageTransitionSlate) return;
+  const small = vintageTransitionSlate.querySelector("span");
+  const strong = vintageTransitionSlate.querySelector("strong");
+  if (small) small.textContent = topLine;
+  if (strong) strong.textContent = mainLine;
+}
+
+function clearVintageTransition() {
+  if (!vintageTransition) return;
+  vintageTransition.classList.remove("chapter-opening", "section-slate", "film-flash");
+}
+
+function runVintageTransition(kind, options = {}) {
+  if (!vintageTransition) {
+    options.onMiddle?.();
+    options.onEnd?.();
+    return;
+  }
+
+  if (vintageTransitionTimer) window.clearTimeout(vintageTransitionTimer);
+  clearVintageTransition();
+
+  if (options.topLine || options.mainLine) {
+    setVintageSlate(options.topLine || "CINTA Nº 03", options.mainLine || "ARCHIVO · AGOSTO 2026");
+  }
+
+  // Reinicia la animación incluso si se usa dos veces seguida.
+  void vintageTransition.offsetWidth;
+  vintageTransition.classList.add(kind);
+
+  const middleDelay = options.middleDelay ?? (kind === "film-flash" ? 150 : 500);
+  const totalDelay = options.totalDelay ?? (kind === "chapter-opening" ? 1550 : kind === "film-flash" ? 480 : 1180);
+
+  window.setTimeout(() => options.onMiddle?.(), middleDelay);
+  vintageTransitionTimer = window.setTimeout(() => {
+    clearVintageTransition();
+    options.onEnd?.();
+  }, totalDelay);
+}
+
+function revealVintageIntro() {
+  if (!vintageIntro) return;
+  vintageIntro.classList.remove("intro-reveal");
+  void vintageIntro.offsetWidth;
+  vintageIntro.classList.add("intro-reveal");
+  window.setTimeout(() => vintageIntro.classList.remove("intro-reveal"), 1500);
+}
+
+function playChapterThreeOpening() {
+  resetChapterThree();
+  runVintageTransition("chapter-opening", {
+    topLine: "ARCHIVO · 03",
+    mainLine: "AGOSTO 2026",
+    onEnd: revealVintageIntro,
+  });
+}
+
+function switchToTypewriterWithTransition() {
+  runVintageTransition("section-slate", {
+    topLine: "DOCUMENTO · 01",
+    mainLine: "CARTA PARA LUPITA",
+    onMiddle: () => {
+      vintageIntro?.setAttribute("hidden", "");
+      memoryStage?.classList.remove("active", "transition-enter");
+      memoryStage?.setAttribute("aria-hidden", "true");
+      typewriterStage?.classList.add("active", "transition-enter");
+      typewriterStage?.setAttribute("aria-hidden", "false");
+      window.scrollTo({ top: 0, behavior: "auto" });
+    },
+    onEnd: () => {
+      startLetter();
+      window.setTimeout(() => typewriterStage?.classList.remove("transition-enter"), 1100);
+    },
+  });
+}
+
+function switchToMemoriesWithTransition() {
+  stopTyping();
+  runVintageTransition("section-slate", {
+    topLine: "CINTA Nº 03",
+    mainLine: "RECUERDOS · AGOSTO 2026",
+    onMiddle: () => {
+      vintageIntro?.setAttribute("hidden", "");
+      typewriterStage?.classList.remove("active", "transition-enter");
+      typewriterStage?.setAttribute("aria-hidden", "true");
+      memoryStage?.classList.add("active", "transition-enter");
+      memoryStage?.setAttribute("aria-hidden", "false");
+      document.querySelectorAll("#memoryStage .memory-card.flipped").forEach(card => card.classList.remove("flipped"));
+      window.scrollTo({ top: 0, behavior: "auto" });
+    },
+    onEnd: () => {
+      window.setTimeout(() => memoryStage?.classList.remove("transition-enter"), 1300);
+    },
+  });
+}
+
+function returnToChapterWithFlash(fromStage) {
+  stopTyping();
+  runVintageTransition("film-flash", {
+    onMiddle: () => {
+      if (fromStage === "memories") {
+        memoryStage?.classList.remove("active", "transition-enter");
+        memoryStage?.setAttribute("aria-hidden", "true");
+        document.querySelectorAll("#memoryStage .memory-card.flipped").forEach(card => card.classList.remove("flipped"));
+      } else {
+        typewriterStage?.classList.remove("active", "transition-enter");
+        typewriterStage?.setAttribute("aria-hidden", "true");
+        if (typedLetter) typedLetter.textContent = "";
+        letterFallback?.classList.remove("show");
+        if (typewriterPaper) typewriterPaper.scrollTop = 0;
+      }
+      vintageIntro?.removeAttribute("hidden");
+      window.scrollTo({ top: 0, behavior: "auto" });
+    },
+    onEnd: revealVintageIntro,
+  });
+}
+
+// Sustituimos únicamente las acciones visuales de los botones ya existentes.
+// stopImmediatePropagation evita que también se ejecute el manejador antiguo.
+openTypewriter?.addEventListener("click", (event) => {
+  event.stopImmediatePropagation();
+  switchToTypewriterWithTransition();
+}, true);
+
+openMemories?.addEventListener("click", (event) => {
+  event.stopImmediatePropagation();
+  switchToMemoriesWithTransition();
+}, true);
+
+closeTypewriter?.addEventListener("click", (event) => {
+  event.stopImmediatePropagation();
+  returnToChapterWithFlash("typewriter");
+}, true);
+
+closeMemories?.addEventListener("click", (event) => {
+  event.stopImmediatePropagation();
+  returnToChapterWithFlash("memories");
+}, true);
+
+// Detecta cada nueva entrada al Capítulo III desde la biblioteca.
+if (chapterThreeScreen) {
+  const chapterThreeObserver = new MutationObserver(() => {
+    const isActive = chapterThreeScreen.classList.contains("active");
+    if (isActive && !chapterThreeWasActive) {
+      window.setTimeout(playChapterThreeOpening, 40);
+    }
+    chapterThreeWasActive = isActive;
+  });
+  chapterThreeObserver.observe(chapterThreeScreen, { attributes: true, attributeFilter: ["class"] });
+}
