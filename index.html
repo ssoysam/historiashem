@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="css/cover.css" />
   <link rel="stylesheet" href="css/library.css" />
   <link rel="stylesheet" href="css/chapter1.css" />
-  <link rel="stylesheet" href="css/chapter2.css?v=20260728-2" />
+  <link rel="stylesheet" href="css/chapter2.css" />
+  <link rel="stylesheet" href="css/chapter3.css?v=20260829-2" />
   <link rel="stylesheet" href="css/roulette.css" />
 </head>
 <body>
@@ -31,7 +32,7 @@
         <p class="intro-text">Un lugar para guardar lo que somos, poquito a poquito.</p>
 
         <div class="library">
-          <button class="chapter-card" id="openChapterOne" type="button">
+          <button class="chapter-card" id="openChapterOne">
             <span class="chapter-number">I</span>
             <span class="chapter-info">
               <span class="chapter-title">Capítulo I</span>
@@ -39,11 +40,19 @@
             </span>
           </button>
 
-          <button class="chapter-card" id="openChapterTwo" type="button">
+          <button class="chapter-card" id="openChapterTwo">
             <span class="chapter-number">II</span>
             <span class="chapter-info">
               <span class="chapter-title">Capítulo II</span>
               <span class="chapter-desc">Océano</span>
+            </span>
+          </button>
+
+          <button class="chapter-card chapter-card-vintage" id="openChapterThree">
+            <span class="chapter-number">III</span>
+            <span class="chapter-info">
+              <span class="chapter-title">Capítulo III</span>
+              <span class="chapter-desc">Vintage</span>
             </span>
           </button>
         </div>
@@ -133,107 +142,147 @@
       </article>
     </section>
 
-    <section class="screen ocean-chapter" id="chapter2" aria-label="Capítulo II: Océano">
+    <section class="screen ocean-chapter" id="chapter2">
       <div class="ocean-scene" aria-hidden="true">
         <div class="ocean-base"></div>
-        <div class="ocean-rays"></div>
-        <div class="ocean-water"></div>
-        <div class="ocean-particles"></div>
-        <div class="ocean-glow-particles" id="oceanGlowParticles"></div>
-        <div class="bubble-field" id="bubbleField"></div>
-        <div class="fish-layer" aria-hidden="true">
-          <span class="fish fish-one"><i></i></span>
-          <span class="fish fish-two"><i></i></span>
-          <span class="fish fish-three"><i></i></span>
-          <span class="fish fish-four"><i></i></span>
-          <span class="fish fish-five"><i></i></span>
-        </div>
         <div class="ocean-depth"></div>
+        <div class="ocean-light"></div>
+        <div class="ocean-water"></div>
         <div class="ocean-vignette"></div>
       </div>
 
-      <button class="ocean-back" id="backHomeFromChapterTwo" type="button" aria-label="Volver al inicio">
-        <span aria-hidden="true">←</span>
-        <span>Inicio</span>
-      </button>
-
       <div class="chapter2-content">
+        <div class="topbar ocean-topbar">
+          <button class="ghost-btn" id="backHomeFromChapterTwo">← Inicio</button>
+          <p class="tiny">CAPÍTULO II</p>
+        </div>
+
         <section class="ocean-step ocean-intro">
-          <div class="ocean-copy ocean-copy-intro">
-            <p class="ocean-kicker">CAPÍTULO II · DOS MESES</p>
+          <div class="ocean-copy">
+            <p class="eyebrow">DOS MESES CONTIGO</p>
             <h2>Océano</h2>
-            <p class="ocean-lead">Hay sentimientos que no caben en palabras. Este es uno de ellos.</p>
+            <p>Toca para permitir que el océano responda al movimiento de tu teléfono.</p>
+            <button class="btn orientation-button" id="enableOceanMotion" type="button">Tocar para sumergirse</button>
+          </div>
+        </section>
 
-            <button class="orientation-button" id="enableOceanMotion" type="button">
-              Activar movimiento
+        <section class="ocean-step"><div class="ocean-copy"><p class="eyebrow">SUPERFICIE</p><h2>La luz todavía nos alcanza.</h2></div></section>
+        <section class="ocean-step"><div class="ocean-copy"><p class="eyebrow">MAR ABIERTO</p><h2>El azul comienza a hacerse más profundo.</h2></div></section>
+        <section class="ocean-step"><div class="ocean-copy"><p class="eyebrow">PROFUNDIDAD</p><h2>La superficie quedó lejos.</h2></div></section>
+        <section class="ocean-step"><div class="ocean-copy"><p class="eyebrow">FONDO DEL OCÉANO</p><h2>Aquí guardaremos el tesoro de este capítulo.</h2></div></section>
+      </div>
+    </section>
+
+    <section class="screen vintage-chapter" id="chapter3">
+      <div class="vintage-noise" aria-hidden="true"></div>
+      <div class="vintage-vignette" aria-hidden="true"></div>
+
+      <div class="vintage-shell">
+        <div class="topbar vintage-topbar">
+          <button class="ghost-btn vintage-back" id="backHomeFromChapterThree">← Inicio</button>
+          <p class="tiny">CAPÍTULO III</p>
+        </div>
+
+        <section class="vintage-intro" id="vintageIntro">
+          <p class="vintage-kicker">ARCHIVO · 03</p>
+          <h2>Un amor de<br>otra época.</h2>
+          <p class="vintage-lead">Tres meses contigo, guardados para que el tiempo haga lo suyo.</p>
+          <button class="vintage-enter" id="openTypewriter" type="button">Leer la carta</button>
+          <button class="vintage-enter vintage-enter-secondary" id="openMemories" type="button">Abrir la caja de recuerdos</button>
+          <p class="vintage-hint">Una pequeña cápsula del tiempo.</p>
+        </section>
+
+
+        <section class="memory-stage" id="memoryStage" aria-hidden="true">
+          <div class="memory-heading">
+            <p class="vintage-kicker">CAJA DE RECUERDOS · 2026</p>
+            <h2>Pedacitos de nosotros.</h2>
+            <p>Toca cada fotografía. Algunas cosas merecen guardarse por ambos lados.</p>
+          </div>
+
+          <div class="memory-desk">
+            <button class="polaroid memory-card tilt-left" type="button" aria-label="Voltear fotografía de nuestras miradas">
+              <span class="memory-card-inner">
+                <span class="memory-front"><img src="assets/chapter3/ojos.jpeg" alt="Una fotografía cercana de nuestras miradas"><span class="polaroid-note">tus ojos + los míos</span></span>
+                <span class="memory-back"><span class="memory-date">AGOSTO · 2026</span><span class="memory-quote">Siempre termino encontrándote con la mirada.</span><span class="memory-mark">S + L</span></span>
+              </span>
             </button>
-            <p class="motion-status" id="oceanMotionStatus" aria-live="polite"></p>
 
-            <div class="scroll-cue" aria-hidden="true">
-              <span>Desliza para sumergirte</span>
-              <i></i>
-            </div>
-          </div>
-        </section>
+            <button class="polaroid memory-card tilt-right" type="button" aria-label="Voltear una selfie juntos">
+              <span class="memory-card-inner">
+                <span class="memory-front"><img src="assets/chapter3/selfie.jpeg" alt="Una selfie juntos durante una salida"><span class="polaroid-note">un día cualquiera ♡</span></span>
+                <span class="memory-back"><span class="memory-date">AGOSTO · 2026</span><span class="memory-quote">Me gustan estos momentos porque no necesitan ser extraordinarios para convertirse en recuerdos.</span><span class="memory-mark">SHEMLUM</span></span>
+              </span>
+            </button>
 
-        <section class="ocean-step ocean-step-quiet" aria-hidden="true"></section>
+            <button class="polaroid memory-card tilt-left-small" type="button" aria-label="Voltear fotografía bajo el agua">
+              <span class="memory-card-inner">
+                <span class="memory-front"><img src="assets/chapter3/bajo-el-agua.jpeg" alt="Un beso bajo el agua"><span class="polaroid-note">del fondo del océano</span></span>
+                <span class="memory-back"><span class="memory-date">ARCHIVO · II → III</span><span class="memory-quote">Parece que algo del océano logró sobrevivir hasta este capítulo.</span><span class="memory-mark">recuperado ♡</span></span>
+              </span>
+            </button>
 
-        <section class="ocean-step">
-          <div class="ocean-copy">
-            <p class="ocean-kicker">SUPERFICIE</p>
-            <h2>Contigo, hasta lo inmenso se siente tranquilo.</h2>
-          </div>
-        </section>
-
-        <section class="ocean-step ocean-step-quiet" aria-hidden="true"></section>
-
-        <section class="ocean-step">
-          <div class="ocean-copy">
-            <p class="ocean-kicker">MAR ABIERTO</p>
-            <h2>Dos meses parecen poco, pero ya guardan un mundo entero.</h2>
-          </div>
-        </section>
-
-        <section class="ocean-step ocean-step-quiet" aria-hidden="true"></section>
-
-        <section class="ocean-step ocean-final">
-          <div class="ocean-copy ocean-treasure-copy">
-            <p class="ocean-kicker">EN LO PROFUNDO</p>
-            <h2>Encontré algo para ti.</h2>
-            <p class="ocean-lead">Toca la botella.</p>
-
-            <button class="message-bottle" id="openOceanLetter" type="button" aria-label="Abrir la carta dentro de la botella">
-              <span class="bottle-cork"></span>
-              <span class="bottle-neck"></span>
-              <span class="bottle-glass">
-                <span class="bottle-letter"></span>
-                <span class="bottle-shine"></span>
+            <button class="ticket-memory memory-card" type="button" aria-label="Ver recuerdo de nuestros boletos de Spider-Man">
+              <span class="memory-card-inner">
+                <span class="memory-front ticket-front"><img src="assets/chapter3/boletos-spiderman.jpeg" alt="Nuestros boletos para Spider-Man: Un Nuevo Día"><span class="ticket-label">CONSERVADO · 02/08/2026</span></span>
+                <span class="memory-back ticket-back"><span class="memory-date">02 DE AGOSTO DE 2026</span><span class="memory-quote">E3 + E4<br><br>Una película, dos boletos y otro recuerdo que decidí guardar contigo.</span><span class="memory-mark">P.D. Sí, guardé los boletos. Obviamente.</span></span>
               </span>
             </button>
           </div>
-        </section>
-      </div>
 
-      <div class="ocean-letter-modal" id="oceanLetterModal" aria-hidden="true">
-        <button class="letter-backdrop" id="closeOceanLetterBackdrop" type="button" aria-label="Cerrar carta"></button>
-        <article class="ocean-letter" role="dialog" aria-modal="true" aria-labelledby="oceanLetterTitle">
-          <button class="letter-close" id="closeOceanLetter" type="button" aria-label="Cerrar carta">×</button>
-          <p class="letter-date">CAPÍTULO II · DOS MESES</p>
-          <h2 id="oceanLetterTitle">Para ti, Lupita</h2>
-          <div class="letter-body">
-            <p>¿Te acuerdas cuando me dijiste que eras como una cebolla? Que tenías muchas capas y que poco a poco las iba a ir descubriendo.</p>
-            <p>Creo que tenías razón.</p>
-            <p>Y qué mejor lugar para darme cuenta que aquí, en el fondo del océano.</p>
-            <p>Porque mientras más me adentro en ti, más cosas encuentro.</p>
-            <p>En cada salida descubro una versión nueva de ti. A veces son cosas grandes, otras son pequeñitas... como escuchar un pedito por aquí, un eructito por allá o alguna ocurrencia que me hace pensar: <em>“¿de verdad acaba de pasar eso?”</em> JAJAJA.</p>
-            <p>Y, curiosamente, esas son las cosas que más me gustan.</p>
-            <p>Porque siento que cada día me dejas conocer una capa más de quién eres.</p>
-            <p>Y mientras más descubro...</p>
-            <p>Más me gustas.<br>Más te admiro.<br>Más te deseo.<br>Y más te amo.</p>
-            <p>Así que espero seguir sumergiéndome contigo durante mucho, mucho tiempo.</p>
+          <p class="memory-footnote">Las fotografías envejecen. Espero que nosotros podamos verlas hacerlo juntos.</p>
+          <button class="vintage-control memory-return" id="closeMemories" type="button">Volver al capítulo</button>
+        </section>
+
+        <section class="typewriter-stage" id="typewriterStage" aria-hidden="true">
+          <div class="typewriter-wrap">
+            <div class="paper" id="typewriterPaper">
+              <div class="paper-inner">
+                <p class="typed-line" id="typedLetter" aria-live="polite"></p>
+                <div class="letter-fallback" id="letterFallback">
+                  <p><strong>Para Lupita:</strong></p>
+                  <p>Últimamente tengo un pequeño problema contigo.</p>
+                  <p>Siento que se me están acabando las palabras.</p>
+                  <p>Te he dicho que te amo, que eres hermosa, preciosa, increíble, maravillosa… hasta llegué al punto de llamarte patrimonio de la humanidad y fenómeno intergaláctico JAJAJA.</p>
+                  <p>Y aun así, siento que ninguna termina de explicar lo que quiero decir.</p>
+                  <p>Quizá porque estos tres meses me han enseñado que amarte ya no cabe solamente en palabras.</p>
+                  <p>También está en verte conseguir algo por lo que te esforzaste y sentirme orgulloso de ti. En descubrir lugares juntos, perdernos por algún caminito, terminar cansadísimos después de una aventura o simplemente sentarnos a ver una película.</p>
+                  <p>Está en saber que puedo acudir a ti cuando algo no va bien y encontrarte a mi lado.</p>
+                  <p>Y está también en esos momentos mucho más nuestros, donde me permites acercarme a ti, confiar en mí para acompañarte en experiencias que también son nuevas para ti. No sabes lo especial que me hace sentir que hayas elegido compartirlas conmigo.</p>
+                  <p>Tal vez por eso me gusta tanto que este capítulo sea <em>vintage</em>.</p>
+                  <p>Porque algún día todo esto lo será.</p>
+                  <p>Nuestras fotos envejecerán. Los boletos que guardemos se volverán recuerdos. Las aventuras de estos meses serán historias que contaremos empezando con un <em>“¿te acuerdas cuando…?”</em></p>
+                  <p>Y esta carta será una pequeña fotografía de cómo me sentía cuando apenas llevábamos tres meses.</p>
+                  <p>Así que quiero dejar algo escrito para ese Samuel y esa Lupita del futuro:</p>
+                  <p><strong>No encontré la palabra que viene después de “te amo”.</strong></p>
+                  <p>Pero sí descubrí qué viene después de decirlo:</p>
+                  <p><strong>vivirlo contigo.</strong></p>
+                  <p>Y eso es exactamente lo que quiero seguir haciendo mientras pase el tiempo.</p>
+                  <p class="letter-signoff">Con amor,<br><strong>Samuel</strong></p>
+                  <p class="letter-caption"><em>Capítulo III — Tres meses contigo.</em></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="typewriter" aria-hidden="true">
+              <div class="typewriter-slot"></div>
+              <div class="typewriter-body">
+                <div class="typewriter-brand">SHEMLUM</div>
+                <div class="keys">
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <div class="spacebar"></div>
+              </div>
+            </div>
           </div>
-          <p class="letter-signature">Con amor,<br><strong>Samuel</strong></p>
-        </article>
+
+          <div class="letter-controls">
+            <button class="vintage-control" id="typewriterSkip" type="button">Mostrar carta completa</button>
+            <button class="vintage-control" id="closeTypewriter" type="button">Volver al capítulo</button>
+          </div>
+        </section>
       </div>
     </section>
 
@@ -268,8 +317,9 @@ Pizza</textarea>
 
   </main>
 
-  <script src="js/app.js?v=20260728"></script>
+  <script src="js/app.js"></script>
   <script src="js/roulette.js"></script>
-  <script src="js/chapter2.js?v=20260728b"></script>
+  <script src="js/chapter2.js"></script>
+  <script src="js/chapter3.js?v=20260829-2"></script>
 </body>
 </html>

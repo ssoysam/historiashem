@@ -3,15 +3,18 @@ const screens = {
   home: document.getElementById("home"),
   chapter: document.getElementById("chapter"),
   chapter2: document.getElementById("chapter2"),
+  chapter3: document.getElementById("chapter3"),
   roulette: document.getElementById("roulette"),
 };
 
 const enterBtn = document.getElementById("enterBtn");
 const openChapterOne = document.getElementById("openChapterOne");
 const openChapterTwo = document.getElementById("openChapterTwo");
+const openChapterThree = document.getElementById("openChapterThree");
 const openRouletteBtn = document.getElementById("openRouletteBtn");
 const backHomeFromChapter = document.getElementById("backHomeFromChapter");
 const backHomeFromChapterTwo = document.getElementById("backHomeFromChapterTwo");
+const backHomeFromChapterThree = document.getElementById("backHomeFromChapterThree");
 const backHomeFromRoulette = document.getElementById("backHomeFromRoulette");
 
 const nextPageBtn = document.getElementById("nextPageBtn");
@@ -20,20 +23,17 @@ const pageOne = document.getElementById("pageOne");
 const pageTwo = document.getElementById("pageTwo");
 
 let transitionInProgress = false;
-let transitionTimer = null;
 
 function goToScreen(current, next) {
-  if (!current || !next || current === next) return;
+  if (!current || !next || current === next || transitionInProgress) return;
 
-  if (transitionTimer) window.clearTimeout(transitionTimer);
   transitionInProgress = true;
   current.style.opacity = "0";
 
-  transitionTimer = window.setTimeout(() => {
+  window.setTimeout(() => {
     current.classList.remove("active");
     current.style.opacity = "";
     next.classList.add("active");
-    next.style.opacity = "1";
 
     if (next === screens.chapter2) {
       next.scrollTop = 0;
@@ -46,57 +46,54 @@ function goToScreen(current, next) {
       drawWheel();
     }
 
-    requestAnimationFrame(() => {
-      next.style.opacity = "";
-      transitionInProgress = false;
-    });
-  }, 420);
+    transitionInProgress = false;
+  }, 650);
 }
 
-function bindClick(element, handler) {
-  if (!element) return;
-  element.addEventListener("click", (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    if (!transitionInProgress) handler();
-  });
-}
+enterBtn?.addEventListener("click", () => goToScreen(screens.cover, screens.home));
 
-bindClick(enterBtn, () => goToScreen(screens.cover, screens.home));
-
-bindClick(openChapterOne, () => {
+openChapterOne?.addEventListener("click", () => {
   pageOne?.classList.add("active-page");
   pageTwo?.classList.remove("active-page");
   goToScreen(screens.home, screens.chapter);
 });
 
-bindClick(openChapterTwo, () => {
+openChapterTwo?.addEventListener("click", () => {
   goToScreen(screens.home, screens.chapter2);
 });
 
-bindClick(openRouletteBtn, () => {
+openChapterThree?.addEventListener("click", () => {
+  goToScreen(screens.home, screens.chapter3);
+});
+
+openRouletteBtn?.addEventListener("click", () => {
   goToScreen(screens.home, screens.roulette);
 });
 
-bindClick(backHomeFromChapter, () => {
+backHomeFromChapter?.addEventListener("click", () => {
   goToScreen(screens.chapter, screens.home);
 });
 
-bindClick(backHomeFromChapterTwo, () => {
+backHomeFromChapterTwo?.addEventListener("click", () => {
   goToScreen(screens.chapter2, screens.home);
 });
 
-bindClick(backHomeFromRoulette, () => {
+backHomeFromChapterThree?.addEventListener("click", () => {
+  if (typeof resetChapterThree === "function") resetChapterThree();
+  goToScreen(screens.chapter3, screens.home);
+});
+
+backHomeFromRoulette?.addEventListener("click", () => {
   goToScreen(screens.roulette, screens.home);
 });
 
-bindClick(nextPageBtn, () => {
+nextPageBtn?.addEventListener("click", () => {
   pageOne?.classList.remove("active-page");
   pageTwo?.classList.add("active-page");
   window.scrollTo({ top: 0, behavior: "auto" });
 });
 
-bindClick(prevPageBtn, () => {
+prevPageBtn?.addEventListener("click", () => {
   pageTwo?.classList.remove("active-page");
   pageOne?.classList.add("active-page");
   window.scrollTo({ top: 0, behavior: "auto" });
