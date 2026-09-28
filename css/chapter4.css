@@ -25,3 +25,37 @@
 /* V3 — colección ampliada: más variedad, menos repetición */
 .living-piece.violet{--r:-2.4deg;background:#c6a6e8}.living-piece.museum-joke{--r:1.2deg;background:#f7c5d5}.living-piece.museum-joke .living-frame{border-style:double;border-width:12px}.gallery-wall{gap:42px;padding-bottom:64px}.living-piece:nth-child(3n) .living-frame{border-color:#4f6b59}.living-piece:nth-child(4n) .living-frame{border-color:#80613e}.living-piece:nth-child(5n) .living-frame{border-color:#654f78}.living-piece:nth-child(even){margin-top:28px}.living-piece:nth-child(3n){margin-bottom:24px}
 @media(max-width:700px){.gallery-wall{gap:24px}.living-piece{flex-basis:82vw}.living-piece:nth-child(even){margin-top:18px}}
+
+/* V4 — mobile-first stability pass */
+#chapter4.screen.active{display:block;width:100%;padding:0;overflow:visible;min-height:100dvh}
+#chapter4 .art-shell{width:100%;min-width:0;min-height:100dvh}
+#chapter4 .art-view{width:100%;min-width:0;min-height:100dvh;overflow-x:clip;overflow-y:visible}
+#chapter4 .art-topbar{padding-top:max(18px,env(safe-area-inset-top));padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}
+.gallery-wall{width:100%;max-width:100%;touch-action:pan-x pan-y;overscroll-behavior-x:contain;scroll-padding-inline:8px}
+.gallery-wall::after{content:"FIN DE LA PARED →";flex:0 0 120px;display:grid;place-items:center;font:900 10px/1.4 ui-monospace,monospace;letter-spacing:.12em;writing-mode:vertical-rl;opacity:.55}
+.art-modal{overflow-y:auto;-webkit-overflow-scrolling:touch;padding-top:max(70px,env(safe-area-inset-top));padding-bottom:max(28px,env(safe-area-inset-bottom))}
+.modal-card{max-height:none;margin:auto}
+.art-button,.art-small,.style-tools button,.straighten,.paper-tab,.palette button{min-height:44px}
+img{max-width:100%}
+@media(max-width:600px){
+  #chapter4 .art-view{padding:calc(max(86px,env(safe-area-inset-top) + 64px)) 18px calc(72px + env(safe-area-inset-bottom))}
+  #chapter4 .art-topbar{top:0;gap:8px;align-items:center}
+  #chapter4 .art-topbar .tiny{font-size:9px;letter-spacing:.16em;text-align:right;white-space:nowrap}
+  #chapter4 .ghost-btn{min-height:44px;padding:10px 13px}
+  .art-view h2{overflow-wrap:anywhere}
+  .gallery-wall{margin-inline:-18px;width:calc(100% + 36px);padding-left:24px;padding-right:24px;gap:20px}
+  .living-piece{flex-basis:min(82vw,360px);padding:14px 14px 12px}
+  .living-frame{border-width:7px;padding:5px}
+  .living-frame img{height:min(54dvh,470px)}
+  .living-piece:nth-child(even){margin-top:12px}
+  .hidden-note-wrap{margin-top:18px}
+  .studio-desk,.style-canvas,.restore-frame,.perspective-stage{box-shadow:8px 9px 0 #0002}
+  .restore-frame{border-width:9px}
+  .style-canvas{border-width:8px;padding:9px}
+  .perspective-stage{aspect-ratio:3/4}
+  .perspective-instruction{max-width:90%;white-space:normal;text-align:center}
+  .final-frame{width:92%;border-width:10px;padding:10px}
+  .curator-letter{width:100%;transform:none;padding:30px 22px}
+  .letter-room{background-attachment:scroll}
+  .art-actions .art-small{flex:1 1 130px}
+}

@@ -53,3 +53,8 @@ stage?.addEventListener('pointerdown',e=>{stageDrag=true;stage.setPointerCapture
 const finalFrame=document.getElementById('finalFrame'),finalReveal=document.getElementById('finalReveal'),curatorButton=document.getElementById('curatorButton'),finalInstruction=document.getElementById('finalInstruction');let finalZoom=0;
 function resetFinal(){finalZoom=0;finalFrame?.classList.remove('zoom1','zoom2','zoom3');finalReveal?.classList.remove('show');curatorButton?.classList.remove('ready');if(finalInstruction)finalInstruction.textContent='Toca la obra para acercarte.'}
 finalFrame?.addEventListener('click',()=>{finalZoom=Math.min(3,finalZoom+1);finalFrame.classList.remove('zoom1','zoom2','zoom3');finalFrame.classList.add(`zoom${finalZoom}`);if(finalZoom===1)finalInstruction.textContent='Un poquito más cerca…';if(finalZoom===2)finalInstruction.textContent='Todavía más…';if(finalZoom===3){finalInstruction.textContent='Ahí está.';finalReveal.classList.add('show');curatorButton.classList.add('ready')}});
+
+// V4 — guards for touch interactions on phones
+['pointerup','pointercancel'].forEach(type=>window.addEventListener(type,()=>{brushing=false;drawing=false;restoring=false;stageDrag=false},{passive:true}));
+// If a modal is open, only the modal should consume the gesture; closing restores normal page scroll.
+if(artModal){artModal.addEventListener('touchmove',()=>{}, {passive:true});}
