@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="css/chapter1.css" />
   <link rel="stylesheet" href="css/chapter2.css?v=20260829-finalfix" />
   <link rel="stylesheet" href="css/chapter3.css?v=20260829-4" />
-  <link rel="stylesheet" href="css/chapter4.css?v=20260928-v2" />
+  <link rel="stylesheet" href="css/chapter4.css?v=20260928-v3" />
   <link rel="stylesheet" href="css/roulette.css" />
 </head>
 <body>
@@ -409,8 +409,26 @@
             <article class="living-piece green" data-title="Exploradora documentando al fotógrafo" data-meta="Fotografía sobre roca · 2026" data-copy="Incluso cuando intento fotografiarte, de alguna manera terminas fotografiándome tú." data-secret="Nos faltan cascadas, cerros, caminos y un montón de lugares por perdernos.">
               <div class="living-frame"><img src="assets/chapter4/barranca.jpeg" alt="Lupita en una salida a la naturaleza"></div><p>III · EXPLORADORA</p>
             </article>
-            <article class="living-piece yellow" data-title="Plan sencillo, obra maestra" data-meta="Técnica mixta con chilito · 2026" data-copy="Dos bebidas, una selfie y la evidencia de que no necesitamos demasiado para pasarla bonito." data-secret="Mi parte favorita de muchos planes termina siendo simplemente estar contigo.">
-              <div class="living-frame"><img src="assets/chapter4/juntos.jpeg" alt="Samuel y Lupita juntos"></div><p>IV · PLAN SENCILLO</p>
+            <article class="living-piece yellow museum-joke" data-title="Estudio de Chiqui" data-meta="Primerísimo primer plano · 2026" data-copy="Una investigación rigurosa sobre qué tan cerca puede estar una modelo de la cámara antes de convertirse en arte contemporáneo." data-secret="Obra invaluable. El museo se niega a aceptar preguntas.">
+              <div class="living-frame"><img src="assets/chapter4/chiqui-closeup.jpeg" alt="Primerísimo primer plano de Lupita"></div><p>IV · ESTUDIO DE CHIQUI</p>
+            </article>
+            <article class="living-piece violet" data-title="Dos caras, cero seriedad" data-meta="Díptico accidental · 2026" data-copy="Hay fotografías que documentan un momento. Esta documenta perfectamente nuestra capacidad de comportarnos." data-secret="Respuesta corta: ninguna. Y me encanta.">
+              <div class="living-frame"><img src="assets/chapter4/dos-caras.jpeg" alt="Samuel y Lupita muy cerca de la cámara"></div><p>V · DÍPTICO ACCIDENTAL</p>
+            </article>
+            <article class="living-piece coral" data-title="Color local" data-meta="Selfie con luces y limones · 2026" data-copy="Un lugar lleno de color y aun así mi mirada termina regresando al mismo punto." data-secret="Sí, chiqui. Tú.">
+              <div class="living-frame"><img src="assets/chapter4/selfie-color.jpeg" alt="Samuel y Lupita en un lugar colorido"></div><p>VI · COLOR LOCAL</p>
+            </article>
+            <article class="living-piece blue" data-title="Descanso de los artistas" data-meta="Luz natural sobre pasto · 2026" data-copy="A veces el plan entero puede reducirse a tirarnos un rato y seguir hablando." data-secret="De mis versiones favoritas de nosotros: sin prisa.">
+              <div class="living-frame"><img src="assets/chapter4/pasto-juntos.jpeg" alt="Samuel y Lupita recostados en el pasto"></div><p>VII · SIN PRISA</p>
+            </article>
+            <article class="living-piece green" data-title="Composición con caos al fondo" data-meta="Performance involuntario · 2026" data-copy="No toda obra necesita explicación. Algunas necesitan contexto que probablemente tampoco ayudaría." data-secret="Esta foto me da demasiada risa JAJAJA.">
+              <div class="living-frame"><img src="assets/chapter4/parque-caos.jpeg" alt="Samuel y Lupita jugando en un parque"></div><p>VIII · PERFORMANCE</p>
+            </article>
+            <article class="living-piece yellow" data-title="Aquí estamos bien" data-meta="Autorretrato horizontal · 2026" data-copy="Dos personas, pasto, luz y uno de esos ratos que parecen pequeños hasta que se vuelven recuerdo." data-secret="No necesitábamos nada más.">
+              <div class="living-frame"><img src="assets/chapter4/pasto-abrazo.jpeg" alt="Samuel y Lupita juntos sobre el pasto"></div><p>IX · AQUÍ ESTAMOS BIEN</p>
+            </article>
+            <article class="living-piece violet" data-title="Fuera de mi zona de confort" data-meta="Retrato de evento · 2026" data-copy="Yo intentando entender la vestimenta formal; nosotros convirtiendo el evento en otro recuerdo." data-secret="Contigo hasta estos ambientes se sienten un poquito más míos.">
+              <div class="living-frame"><img src="assets/chapter4/evento.jpeg" alt="Samuel y Lupita arreglados para un evento"></div><p>X · OTRA ESCENA</p>
             </article>
           </div>
           <div class="hidden-note-wrap"><button class="paper-tab" id="paperTab" type="button">JALA AQUÍ ↓</button><div class="hidden-note" id="hiddenNote">chiqui ♡<br><small>firma secreta del artista</small></div></div>
@@ -434,7 +452,7 @@
 
         <section class="art-view restore-room" id="artRestoreRoom">
           <header class="art-section-head"><span>SALA III · RESTAURACIÓN</span><h2>Hay cosas que<br>vale la pena conservar.</h2><p>La obra está cubierta por años de pintura. Límpiala con el dedo.</p></header>
-          <div class="restore-frame" id="restoreFrame"><img src="assets/chapter4/juntos.jpeg" alt="Samuel y Lupita juntos"><canvas id="restoreCanvas" width="800" height="800"></canvas><div class="restore-hint" id="restoreHint">PASA EL DEDO PARA RESTAURAR</div></div>
+          <div class="restore-frame" id="restoreFrame"><img src="assets/chapter4/noche.jpeg" alt="Samuel y Lupita juntos"><canvas id="restoreCanvas" width="800" height="800"></canvas><div class="restore-hint" id="restoreHint">PASA EL DEDO PARA RESTAURAR</div></div>
           <p class="restore-progress" id="restoreProgress">Restauración: 0%</p>
           <div class="restored-message" id="restoredMessage"><b>Obra restaurada. ♡</b><span>Algunas cosas vale la pena conservarlas.</span></div>
           <button class="art-button" id="restoreContinue" data-art-go="styles" disabled>Continuar →</button>
@@ -442,7 +460,7 @@
 
         <section class="art-view styles-room" id="artStylesRoom">
           <header class="art-section-head"><span>SALA IV · HAZNOS ARTE</span><h2>Elige cómo<br>recordarnos hoy.</h2><p>La misma imagen puede convertirse en algo completamente distinto según cómo decidas mirarla.</p></header>
-          <div class="style-canvas"><img id="styleImage" src="assets/chapter4/juntos.jpeg" alt="Samuel y Lupita juntos"></div>
+          <div class="style-canvas"><img id="styleImage" src="assets/chapter4/selfie-abajo.jpeg" alt="Samuel y Lupita juntos"></div>
           <div class="style-tools"><button data-filter="oil" class="selected">Óleo</button><button data-filter="water">Acuarela</button><button data-filter="charcoal">Carboncillo</button><button data-filter="collage">Collage</button></div>
           <p class="style-caption" id="styleCaption">Óleo · colores intensos, bordes suaves.</p>
           <button class="art-button" data-art-go="perspective">Siguiente sala →</button>
@@ -451,11 +469,11 @@
         <section class="art-view perspective-room" id="artPerspectiveRoom">
           <header class="art-section-head"><span>SALA V · PERSPECTIVA</span><h2>Encuentra<br>el ángulo.</h2><p>Mueve el dedo de lado a lado hasta que las piezas encuentren su lugar.</p></header>
           <div class="perspective-stage" id="perspectiveStage">
-            <img src="assets/chapter4/espejo.jpeg" alt="Retrato de Lupita frente al espejo">
+            <img src="assets/chapter4/barranca-atardecer.jpeg" alt="Lupita contemplando la barranca al atardecer">
             <div class="perspective-shape s1"></div><div class="perspective-shape s2"></div><div class="perspective-shape s3"></div><div class="perspective-shape s4"></div><div class="perspective-shape s5"></div>
             <div class="perspective-instruction" id="perspectiveInstruction">DESLIZA AQUÍ ↔</div>
           </div>
-          <blockquote>“Dicen que el arte depende de quién lo mira.”<strong>Qué bonita perspectiva me tocó contigo.</strong></blockquote>
+          <blockquote>“Dicen que el arte depende de quién lo mira.”<strong>Y yo podría quedarme mirando esta perspectiva contigo por mucho tiempo.</strong></blockquote>
           <button class="art-button" id="perspectiveContinue" data-art-go="final" disabled>Última sala →</button>
         </section>
 
@@ -463,7 +481,7 @@
           <p class="art-kicker dark">SALA VI · COLECCIÓN PERMANENTE</p>
           <h2>Mi obra<br>favorita.</h2>
           <p class="final-instruction" id="finalInstruction">Toca la obra para acercarte.</p>
-          <div class="final-frame" id="finalFrame"><img src="assets/chapter4/retrato.jpeg" alt="Retrato de Lupita"></div>
+          <div class="final-frame" id="finalFrame"><img src="assets/chapter4/espejo.jpeg" alt="Retrato de Lupita"></div>
           <div class="museum-label final-label" id="finalLabel"><b>Lupita</b><small>“Chiqui” para el artista · 2005– · Obra única</small><p>No está terminada. Sigue cambiando, creciendo y sorprendiéndome. Quizá por eso nunca me canso de contemplarla.</p><em>Colección permanente de Samuel.</em></div>
           <div class="final-reveal" id="finalReveal"><i>Curioso.</i><p>Mientras más cerca estoy,<br>más cosas encuentro para admirar.</p></div>
           <button class="art-button dark-button" id="curatorButton" data-art-go="letter">Leer nota del curador</button>
@@ -541,7 +559,7 @@ Pizza</textarea>
   </script>
   <script src="js/app.js?v=20260928-3"></script>
   <script src="js/roulette.js"></script>
-  <script src="js/chapter4.js?v=20260928-v2"></script>
+  <script src="js/chapter4.js?v=20260928-v3"></script>
   <script src="js/chapter2.js?v=20260829-finalfix"></script>
   <script src="js/chapter3.js?v=20260829-4"></script>
 </body>
