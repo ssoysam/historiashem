@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="css/chapter1.css" />
   <link rel="stylesheet" href="css/chapter2.css?v=20260829-finalfix" />
   <link rel="stylesheet" href="css/chapter3.css?v=20260829-4" />
-  <link rel="stylesheet" href="css/chapter4.css?v=20260928-2" />
+  <link rel="stylesheet" href="css/chapter4.css?v=20260928-v2" />
   <link rel="stylesheet" href="css/roulette.css" />
 </head>
 <body>
@@ -378,64 +378,95 @@
 
 
     <section class="screen art-chapter" id="chapter4" aria-label="Capítulo IV: Arte">
-      <div class="art-transition" id="artTransition" aria-hidden="true"><span></span></div>
+      <div class="art-transition" id="artTransition" aria-hidden="true"><span></span><i></i><b></b></div>
       <div class="art-shell">
         <div class="topbar art-topbar">
           <button class="ghost-btn art-back" id="backHomeFromChapterFour">← Inicio</button>
-          <p class="tiny">CAPÍTULO IV</p>
+          <p class="tiny">CAPÍTULO IV · ARTE</p>
         </div>
 
-        <section class="art-view active" id="artLobby">
-          <div class="art-blob blob-a"></div><div class="art-blob blob-b"></div><div class="art-blob blob-c"></div>
+        <section class="art-view active art-lobby" id="artLobby">
+          <div class="paper-noise"></div>
           <p class="art-kicker">SHEMLUM PRESENTA · EXPOSICIÓN IV</p>
           <h2>El arte de<br><em>coincidir contigo.</em></h2>
-          <p class="art-lead">Cuatro meses. Una exposición sobre todo lo que he aprendido a mirar contigo.</p>
-          <button class="art-button" data-art-go="gallery">Entrar a la exposición</button>
+          <p class="art-lead">Este museo no se mira desde lejos. Se toca, se mueve, se pinta y se descubre.</p>
+          <div class="brush-start" id="brushStart" role="button" tabindex="0" aria-label="Desliza para entrar a la exposición">
+            <canvas id="brushStartCanvas" width="900" height="180"></canvas>
+            <span>DESLIZA PARA COMENZAR LA OBRA →</span>
+          </div>
           <p class="art-caption">Colección privada · Samuel A. · 2026</p>
         </section>
 
-        <section class="art-view" id="artGallery">
-          <header class="art-section-head"><span>SALA I · LA COLECCIÓN</span><h2>Cuatro formas<br>de mirarte.</h2><p>No todas las obras necesitan explicación. Estas sí tienen una pequeña placa.</p></header>
-          <div class="gallery-grid">
-            <figure class="museum-piece piece-coral"><div class="museum-frame"><img src="assets/chapter4/retrato.jpeg" alt="Retrato de Lupita"></div><figcaption><b>I · Entre pestañas</b><small>Retrato cotidiano · 2026</small><p>Hay días en los que no necesito buscar belleza demasiado lejos.</p></figcaption></figure>
-            <figure class="museum-piece piece-blue"><div class="museum-frame"><img src="assets/chapter4/gimnasia.png" alt="Lupita en gimnasia"></div><figcaption><b>II · Lo que queda del esfuerzo</b><small>Movimiento detenido · 2026</small><p>Una etapa puede terminar sin borrar todo lo que construiste dentro de ella.</p></figcaption></figure>
-            <figure class="museum-piece piece-green"><div class="museum-frame"><img src="assets/chapter4/barranca.jpeg" alt="Lupita en una salida a la naturaleza"></div><figcaption><b>III · Exploradora documentando al fotógrafo</b><small>Fotografía sobre roca · 2026</small><p>Prueba de que incluso cuando intento fotografiarte, de alguna manera terminas fotografiándome tú.</p></figcaption></figure>
-            <figure class="museum-piece piece-yellow"><div class="museum-frame"><img src="assets/chapter4/juntos.jpeg" alt="Samuel y Lupita juntos"></div><figcaption><b>IV · Plan sencillo, obra maestra</b><small>Técnica mixta con chilito · 2026</small><p>Dos bebidas, una selfie y la evidencia de que no necesitamos demasiado para pasarla bonito.</p></figcaption></figure>
+        <section class="art-view gallery-room" id="artGallery">
+          <header class="art-section-head"><span>SALA I · GALERÍA VIVA</span><h2>No solo las mires.<br><em>Acércate.</em></h2><p>Desliza la pared. Toca los cuadros. Algunos esconden más de lo que parece.</p></header>
+          <div class="gallery-wall" id="galleryWall">
+            <article class="living-piece coral" data-title="Entre pestañas" data-meta="Retrato cotidiano · 2026" data-copy="Hay días en los que no necesito buscar belleza demasiado lejos." data-secret="Me gusta muchísimo cómo se ven tus ojos cuando no estás posando. ♡">
+              <div class="living-frame"><img src="assets/chapter4/retrato.jpeg" alt="Retrato de Lupita"></div><p>I · ENTRE PESTAÑAS</p>
+            </article>
+            <article class="living-piece blue crooked" id="crookedPiece" data-title="Lo que queda del esfuerzo" data-meta="Movimiento detenido · 2026" data-copy="Una etapa puede terminar sin borrar todo lo que construiste dentro de ella." data-secret="Te vi ganar, chiqui. Y sigo bien orgulloso de ti.">
+              <div class="living-frame"><img src="assets/chapter4/gimnasia.png" alt="Lupita en gimnasia"></div><p>II · LO QUE QUEDA DEL ESFUERZO</p><button class="straighten" type="button">Enderezar cuadro ↻</button>
+            </article>
+            <article class="living-piece green" data-title="Exploradora documentando al fotógrafo" data-meta="Fotografía sobre roca · 2026" data-copy="Incluso cuando intento fotografiarte, de alguna manera terminas fotografiándome tú." data-secret="Nos faltan cascadas, cerros, caminos y un montón de lugares por perdernos.">
+              <div class="living-frame"><img src="assets/chapter4/barranca.jpeg" alt="Lupita en una salida a la naturaleza"></div><p>III · EXPLORADORA</p>
+            </article>
+            <article class="living-piece yellow" data-title="Plan sencillo, obra maestra" data-meta="Técnica mixta con chilito · 2026" data-copy="Dos bebidas, una selfie y la evidencia de que no necesitamos demasiado para pasarla bonito." data-secret="Mi parte favorita de muchos planes termina siendo simplemente estar contigo.">
+              <div class="living-frame"><img src="assets/chapter4/juntos.jpeg" alt="Samuel y Lupita juntos"></div><p>IV · PLAN SENCILLO</p>
+            </article>
           </div>
-          <button class="art-button" data-art-go="canvas">Siguiente sala →</button>
+          <div class="hidden-note-wrap"><button class="paper-tab" id="paperTab" type="button">JALA AQUÍ ↓</button><div class="hidden-note" id="hiddenNote">chiqui ♡<br><small>firma secreta del artista</small></div></div>
+          <button class="art-button" data-art-go="studio">Entrar al estudio →</button>
         </section>
 
-        <section class="art-view canvas-room" id="artCanvasRoom">
-          <header class="art-section-head"><span>SALA II · PÍNTAME</span><h2>Ahora te toca<br>a ti.</h2><p>Haz algo bonito. O algo horrible. El museo tiene estándares cuestionables.</p></header>
-          <div class="paint-wrap"><canvas id="loveCanvas" width="700" height="700"></canvas></div>
-          <div class="palette" aria-label="Paleta de colores">
-            <button data-paint="#ef476f" style="--paint:#ef476f"></button><button data-paint="#ffd166" style="--paint:#ffd166"></button><button data-paint="#06d6a0" style="--paint:#06d6a0"></button><button data-paint="#118ab2" style="--paint:#118ab2"></button><button data-paint="#7b2cbf" style="--paint:#7b2cbf"></button><button data-paint="#111111" style="--paint:#111111"></button>
+        <div class="art-modal" id="artModal" aria-hidden="true"><button id="closeArtModal" type="button">×</button><div class="modal-card"><p class="modal-meta" id="modalMeta"></p><h3 id="modalTitle"></h3><p id="modalCopy"></p><p class="modal-secret" id="modalSecret"></p><small>Mantén presionado un cuadro para descubrir la anotación del artista.</small></div></div>
+
+        <section class="art-view studio-room" id="artStudioRoom">
+          <header class="art-section-head"><span>SALA II · EL ESTUDIO</span><h2>Ensúciate<br>las manos.</h2><p>Pinta con el dedo. Aquí no existen errores, solo decisiones artísticas cuestionables.</p></header>
+          <div class="studio-desk">
+            <div class="paint-wrap textured-canvas"><div class="canvas-secrets"><span>bonita</span><span>valiente</span><span>chiqui ♡</span><span>mi lugar favorito</span></div><canvas id="loveCanvas" width="700" height="700"></canvas></div>
+            <div class="palette" aria-label="Paleta de colores">
+              <button data-paint="#ef476f" style="--paint:#ef476f"></button><button data-paint="#ffd166" style="--paint:#ffd166"></button><button data-paint="#06d6a0" style="--paint:#06d6a0"></button><button data-paint="#118ab2" style="--paint:#118ab2"></button><button data-paint="#7b2cbf" style="--paint:#7b2cbf"></button><button data-paint="#111111" style="--paint:#111111"></button>
+            </div>
           </div>
-          <div class="art-actions"><button class="art-small" id="clearLoveCanvas">Limpiar lienzo</button><button class="art-button" data-art-go="puzzle">Firmar obra y continuar →</button></div>
-          <div class="museum-label live-label"><b>Sin título</b><small>Guadalupe · 2026</small><p>Primera obra realizada para la colección privada de Samuel.</p></div>
+          <div class="art-actions"><button class="art-small" id="clearLoveCanvas">Limpiar</button><button class="art-small" id="saveLoveCanvas">Guardar obra</button></div>
+          <div class="museum-label live-label"><b>Sin título</b><small>Chiqui · 2026</small><p>Técnica: hacer lo que se le dio la gana.</p></div>
+          <button class="art-button" data-art-go="restore">Firmar y continuar →</button>
         </section>
 
-        <section class="art-view puzzle-room" id="artPuzzleRoom">
-          <header class="art-section-head"><span>SALA III · FRAGMENTOS</span><h2>Algunas cosas<br>simplemente encajan.</h2><p>Toca dos piezas para intercambiarlas y reconstruir la fotografía.</p></header>
-          <div class="puzzle" id="artPuzzle" aria-label="Rompecabezas de una fotografía"></div>
-          <p class="puzzle-status" id="puzzleStatus">Piezas fuera de lugar: 8</p>
-          <button class="art-button" id="puzzleContinue" data-art-go="perspective" disabled>Continuar →</button>
+        <section class="art-view restore-room" id="artRestoreRoom">
+          <header class="art-section-head"><span>SALA III · RESTAURACIÓN</span><h2>Hay cosas que<br>vale la pena conservar.</h2><p>La obra está cubierta por años de pintura. Límpiala con el dedo.</p></header>
+          <div class="restore-frame" id="restoreFrame"><img src="assets/chapter4/juntos.jpeg" alt="Samuel y Lupita juntos"><canvas id="restoreCanvas" width="800" height="800"></canvas><div class="restore-hint" id="restoreHint">PASA EL DEDO PARA RESTAURAR</div></div>
+          <p class="restore-progress" id="restoreProgress">Restauración: 0%</p>
+          <div class="restored-message" id="restoredMessage"><b>Obra restaurada. ♡</b><span>Algunas cosas vale la pena conservarlas.</span></div>
+          <button class="art-button" id="restoreContinue" data-art-go="styles" disabled>Continuar →</button>
+        </section>
+
+        <section class="art-view styles-room" id="artStylesRoom">
+          <header class="art-section-head"><span>SALA IV · HAZNOS ARTE</span><h2>Elige cómo<br>recordarnos hoy.</h2><p>La misma imagen puede convertirse en algo completamente distinto según cómo decidas mirarla.</p></header>
+          <div class="style-canvas"><img id="styleImage" src="assets/chapter4/juntos.jpeg" alt="Samuel y Lupita juntos"></div>
+          <div class="style-tools"><button data-filter="oil" class="selected">Óleo</button><button data-filter="water">Acuarela</button><button data-filter="charcoal">Carboncillo</button><button data-filter="collage">Collage</button></div>
+          <p class="style-caption" id="styleCaption">Óleo · colores intensos, bordes suaves.</p>
+          <button class="art-button" data-art-go="perspective">Siguiente sala →</button>
         </section>
 
         <section class="art-view perspective-room" id="artPerspectiveRoom">
-          <header class="art-section-head"><span>SALA IV · PERSPECTIVA</span><h2>Todo depende<br>de cómo lo mires.</h2><p>Mueve el control hasta que el ruido desaparezca.</p></header>
-          <div class="perspective-art"><img src="assets/chapter4/espejo.jpeg" alt="Retrato de Lupita frente al espejo"><div class="abstract-cover" id="abstractCover"><i></i><i></i><i></i><i></i><i></i></div></div>
-          <input class="perspective-slider" id="perspectiveSlider" type="range" min="0" max="100" value="0" aria-label="Revelar la obra">
-          <blockquote>“Dicen que el arte depende de quién lo mira.”<strong>Yo tuve suerte con mi perspectiva.</strong></blockquote>
-          <button class="art-button" data-art-go="final">Última sala →</button>
+          <header class="art-section-head"><span>SALA V · PERSPECTIVA</span><h2>Encuentra<br>el ángulo.</h2><p>Mueve el dedo de lado a lado hasta que las piezas encuentren su lugar.</p></header>
+          <div class="perspective-stage" id="perspectiveStage">
+            <img src="assets/chapter4/espejo.jpeg" alt="Retrato de Lupita frente al espejo">
+            <div class="perspective-shape s1"></div><div class="perspective-shape s2"></div><div class="perspective-shape s3"></div><div class="perspective-shape s4"></div><div class="perspective-shape s5"></div>
+            <div class="perspective-instruction" id="perspectiveInstruction">DESLIZA AQUÍ ↔</div>
+          </div>
+          <blockquote>“Dicen que el arte depende de quién lo mira.”<strong>Qué bonita perspectiva me tocó contigo.</strong></blockquote>
+          <button class="art-button" id="perspectiveContinue" data-art-go="final" disabled>Última sala →</button>
         </section>
 
         <section class="art-view final-room" id="artFinalRoom">
-          <p class="art-kicker dark">SALA V · COLECCIÓN PERMANENTE</p>
+          <p class="art-kicker dark">SALA VI · COLECCIÓN PERMANENTE</p>
           <h2>Mi obra<br>favorita.</h2>
-          <div class="final-frame"><img src="assets/chapter4/retrato.jpeg" alt="Retrato de Lupita"></div>
-          <div class="museum-label final-label"><b>Guadalupe</b><small>2005– · Obra única</small><p>No está terminada. Sigue cambiando, creciendo y sorprendiéndome. Quizá por eso nunca me canso de contemplarla.</p><em>Colección permanente de Samuel.</em></div>
-          <button class="art-button dark-button" data-art-go="letter">Leer nota del curador</button>
+          <p class="final-instruction" id="finalInstruction">Toca la obra para acercarte.</p>
+          <div class="final-frame" id="finalFrame"><img src="assets/chapter4/retrato.jpeg" alt="Retrato de Lupita"></div>
+          <div class="museum-label final-label" id="finalLabel"><b>Lupita</b><small>“Chiqui” para el artista · 2005– · Obra única</small><p>No está terminada. Sigue cambiando, creciendo y sorprendiéndome. Quizá por eso nunca me canso de contemplarla.</p><em>Colección permanente de Samuel.</em></div>
+          <div class="final-reveal" id="finalReveal"><i>Curioso.</i><p>Mientras más cerca estoy,<br>más cosas encuentro para admirar.</p></div>
+          <button class="art-button dark-button" id="curatorButton" data-art-go="letter">Leer nota del curador</button>
         </section>
 
         <section class="art-view letter-room" id="artLetterRoom">
@@ -463,7 +494,6 @@
         </section>
       </div>
     </section>
-
 
     <section class="screen" id="roulette">
       <div class="topbar">
@@ -511,7 +541,7 @@ Pizza</textarea>
   </script>
   <script src="js/app.js?v=20260928-3"></script>
   <script src="js/roulette.js"></script>
-  <script src="js/chapter4.js?v=20260928-4"></script>
+  <script src="js/chapter4.js?v=20260928-v2"></script>
   <script src="js/chapter2.js?v=20260829-finalfix"></script>
   <script src="js/chapter3.js?v=20260829-4"></script>
 </body>
