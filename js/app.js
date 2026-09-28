@@ -4,6 +4,7 @@ const screens = {
   chapter: document.getElementById("chapter"),
   chapter2: document.getElementById("chapter2"),
   chapter3: document.getElementById("chapter3"),
+  chapter4: document.getElementById("chapter4"),
   roulette: document.getElementById("roulette"),
 };
 
@@ -11,10 +12,12 @@ const enterBtn = document.getElementById("enterBtn");
 const openChapterOne = document.getElementById("openChapterOne");
 const openChapterTwo = document.getElementById("openChapterTwo");
 const openChapterThree = document.getElementById("openChapterThree");
+const openChapterFour = document.getElementById("openChapterFour");
 const openRouletteBtn = document.getElementById("openRouletteBtn");
 const backHomeFromChapter = document.getElementById("backHomeFromChapter");
 const backHomeFromChapterTwo = document.getElementById("backHomeFromChapterTwo");
 const backHomeFromChapterThree = document.getElementById("backHomeFromChapterThree");
+const backHomeFromChapterFour = document.getElementById("backHomeFromChapterFour");
 const backHomeFromRoulette = document.getElementById("backHomeFromRoulette");
 
 const nextPageBtn = document.getElementById("nextPageBtn");
@@ -66,6 +69,11 @@ openChapterThree?.addEventListener("click", () => {
   goToScreen(screens.home, screens.chapter3);
 });
 
+openChapterFour?.addEventListener("click", () => {
+  if (typeof resetChapterFour === "function") resetChapterFour();
+  goToScreen(screens.home, screens.chapter4);
+});
+
 openRouletteBtn?.addEventListener("click", () => {
   goToScreen(screens.home, screens.roulette);
 });
@@ -81,6 +89,11 @@ backHomeFromChapterTwo?.addEventListener("click", () => {
 backHomeFromChapterThree?.addEventListener("click", () => {
   if (typeof resetChapterThree === "function") resetChapterThree();
   goToScreen(screens.chapter3, screens.home);
+});
+
+backHomeFromChapterFour?.addEventListener("click", () => {
+  if (typeof resetChapterFour === "function") resetChapterFour();
+  goToScreen(screens.chapter4, screens.home);
 });
 
 backHomeFromRoulette?.addEventListener("click", () => {
