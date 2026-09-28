@@ -14,3 +14,8 @@
 
 /* Fix navegación Capítulo IV */
 #artLobby > *:not(.art-blob){position:relative;z-index:3}.art-button{position:relative;z-index:5;pointer-events:auto;touch-action:manipulation}
+
+/* FIX 3: la decoración de la tarjeta nunca bloquea el toque */
+.chapter-card-art::before,.chapter-card-art::after{pointer-events:none!important;}
+.chapter-card-art{position:relative;z-index:2;touch-action:manipulation;}
+.chapter-card-art>*{position:relative;z-index:3;pointer-events:none;}
