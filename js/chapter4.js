@@ -15,12 +15,12 @@ chapterFour?.addEventListener('click', (event) => {
 });
 window.resetChapterFour=()=>{artGo('lobby',false);clearCanvas();const s=document.getElementById('perspectiveSlider');if(s){s.value=0;updatePerspective(0)}};
 
-const canvas=document.getElementById('loveCanvas'),ctx=canvas?.getContext('2d');let paint='#ef476f',drawing=false,last=null;
-function canvasPoint(e){const r=canvas.getBoundingClientRect(),t=e.touches?.[0]||e;return{x:(t.clientX-r.left)*canvas.width/r.width,y:(t.clientY-r.top)*canvas.height/r.height}}
-function startDraw(e){drawing=true;last=canvasPoint(e);e.preventDefault()} function moveDraw(e){if(!drawing)return;const p=canvasPoint(e);ctx.strokeStyle=paint;ctx.lineWidth=14;ctx.lineCap='round';ctx.lineJoin='round';ctx.beginPath();ctx.moveTo(last.x,last.y);ctx.lineTo(p.x,p.y);ctx.stroke();last=p;e.preventDefault()} function endDraw(){drawing=false;last=null}
-if(canvas){['pointerdown'].forEach(x=>canvas.addEventListener(x,startDraw));canvas.addEventListener('pointermove',moveDraw);window.addEventListener('pointerup',endDraw)}
+const loveCanvasEl=document.getElementById('loveCanvas'),loveCtx=loveCanvasEl?.getContext('2d');let paint='#ef476f',drawing=false,last=null;
+function canvasPoint(e){const r=loveCanvasEl.getBoundingClientRect(),t=e.touches?.[0]||e;return{x:(t.clientX-r.left)*loveCanvasEl.width/r.width,y:(t.clientY-r.top)*loveCanvasEl.height/r.height}}
+function startDraw(e){drawing=true;last=canvasPoint(e);e.preventDefault()} function moveDraw(e){if(!drawing)return;const p=canvasPoint(e);loveCtx.strokeStyle=paint;loveCtx.lineWidth=14;loveCtx.lineCap='round';loveCtx.lineJoin='round';loveCtx.beginPath();loveCtx.moveTo(last.x,last.y);loveCtx.lineTo(p.x,p.y);loveCtx.stroke();last=p;e.preventDefault()} function endDraw(){drawing=false;last=null}
+if(loveCanvasEl){['pointerdown'].forEach(x=>loveCanvasEl.addEventListener(x,startDraw));loveCanvasEl.addEventListener('pointermove',moveDraw);window.addEventListener('pointerup',endDraw)}
 document.querySelectorAll('[data-paint]').forEach((b,i)=>{if(i===0)b.classList.add('selected');b.addEventListener('click',()=>{paint=b.dataset.paint;document.querySelectorAll('[data-paint]').forEach(x=>x.classList.remove('selected'));b.classList.add('selected')})});
-function clearCanvas(){if(ctx){ctx.clearRect(0,0,canvas.width,canvas.height)}}document.getElementById('clearLoveCanvas')?.addEventListener('click',clearCanvas);
+function clearCanvas(){if(loveCtx){loveCtx.clearRect(0,0,loveCanvasEl.width,loveCanvasEl.height)}}document.getElementById('clearLoveCanvas')?.addEventListener('click',clearCanvas);
 
 const puzzle=document.getElementById('artPuzzle'),status=document.getElementById('puzzleStatus'),puzzleContinue=document.getElementById('puzzleContinue');let order=[],selected=null;
 function shuffled(){let a=[0,1,2,3,4,5,6,7,8];do{a.sort(()=>Math.random()-.5)}while(a.every((v,i)=>v===i));return a}
