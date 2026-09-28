@@ -11,3 +11,6 @@
 .art-transition{position:fixed;inset:0;z-index:999;pointer-events:none;opacity:0;background:#fff;display:grid;place-items:center}.art-transition span{position:absolute;width:0;height:130vh;background:linear-gradient(90deg,#ef476f,#ffd166,#06d6a0,#118ab2,#7b2cbf);transform:rotate(-14deg)}.art-transition.paint-swipe{animation:artFlash .8s ease both}.art-transition.paint-swipe span{animation:paintSwipe .8s cubic-bezier(.7,0,.25,1) both}@keyframes artFlash{0%,100%{opacity:0}10%,88%{opacity:1}}@keyframes paintSwipe{0%{width:0;left:-30%}45%,60%{width:160vw;left:-30%}100%{width:0;left:130%}}
 @media(max-width:600px){.art-view{padding:125px 20px 70px}.art-topbar{top:16px}.art-view h2{font-size:clamp(48px,16vw,74px)}.art-section-head h2{font-size:clamp(43px,13vw,65px)}.museum-piece{padding:18px}.museum-frame{padding:8px;border-width:7px}.museum-piece figcaption{margin:12px 0 0 8px}.art-actions .art-button{margin-top:0}.curator-letter{box-shadow:9px 10px 0 rgba(23,21,21,.9)}.blob-a{opacity:.65}}
 @media(prefers-reduced-motion:reduce){.art-view.active,.art-transition,.art-transition span{animation:none!important}.art-transition{display:none}}
+
+/* Fix navegación Capítulo IV */
+#artLobby > *:not(.art-blob){position:relative;z-index:3}.art-button{position:relative;z-index:5;pointer-events:auto;touch-action:manipulation}

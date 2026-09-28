@@ -2,7 +2,17 @@ const artViews = [...document.querySelectorAll('#chapter4 .art-view')];
 const artTransition = document.getElementById('artTransition');
 const artMap = {lobby:'artLobby',gallery:'artGallery',canvas:'artCanvasRoom',puzzle:'artPuzzleRoom',perspective:'artPerspectiveRoom',final:'artFinalRoom',letter:'artLetterRoom'};
 function artGo(name, animate=true){const show=()=>{artViews.forEach(v=>v.classList.toggle('active',v.id===artMap[name]));window.scrollTo({top:0,behavior:'auto'});if(name==='puzzle') buildPuzzle();};if(!animate){show();return;}artTransition?.classList.remove('paint-swipe');void artTransition?.offsetWidth;artTransition?.classList.add('paint-swipe');setTimeout(show,390);setTimeout(()=>artTransition?.classList.remove('paint-swipe'),850)}
-document.querySelectorAll('[data-art-go]').forEach(b=>b.addEventListener('click',()=>artGo(b.dataset.artGo)));
+// Navegación robusta del museo: delegación de eventos para que funcione incluso
+// si el capítulo se activa después de cargar la página.
+const chapterFour = document.getElementById('chapter4');
+chapterFour?.addEventListener('click', (event) => {
+  const button = event.target.closest('[data-art-go]');
+  if (!button || !chapterFour.contains(button)) return;
+  event.preventDefault();
+  event.stopPropagation();
+  const destination = button.getAttribute('data-art-go');
+  if (destination && artMap[destination]) artGo(destination);
+});
 window.resetChapterFour=()=>{artGo('lobby',false);clearCanvas();const s=document.getElementById('perspectiveSlider');if(s){s.value=0;updatePerspective(0)}};
 
 const canvas=document.getElementById('loveCanvas'),ctx=canvas?.getContext('2d');let paint='#ef476f',drawing=false,last=null;
