@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/chapter3.css?v=20260829-4" />
   <link rel="stylesheet" href="css/chapter4.css?v=20260928-v4" />
   <link rel="stylesheet" href="css/roulette.css" />
+  <link rel="stylesheet" href="css/chapter5.css?v=20261027-1" />
 </head>
 <body>
   <main class="app">
@@ -63,6 +64,10 @@
               <span class="chapter-title">Capítulo IV</span>
               <span class="chapter-desc">Arte</span>
             </span>
+          </button>
+          <button type="button" class="chapter-card chapter-card-halloween" id="openChapterFive">
+            <span class="chapter-number">V</span>
+            <span class="chapter-info"><span class="chapter-title">Capítulo V</span><span class="chapter-desc">Entre dos mundos · 🎃</span></span>
           </button>
         </div>
 
@@ -513,6 +518,169 @@
       </div>
     </section>
 
+    <!-- SHEMLUM V — historia interactiva; los capítulos anteriores permanecen intactos -->
+    <section class="screen v5-chapter" id="chapter5" aria-label="Capítulo V: Entre dos mundos">
+      <div class="v5-stars" id="v5Stars" aria-hidden="true"></div>
+      <div class="v5-moon" aria-hidden="true"></div>
+      <div class="v5-bunting" aria-hidden="true"><span>✿</span><span>♡</span><span>✦</span><span>♡</span><span>✿</span><span>♡</span><span>✦</span></div>
+      <div class="v5-orbit v5-orbit-left" aria-hidden="true"></div><div class="v5-orbit v5-orbit-right" aria-hidden="true"></div>
+      <div class="v5-petals" id="v5Petals" aria-hidden="true"></div>
+      <nav class="v5-topbar" aria-label="Navegación del capítulo cinco">
+        <button class="v5-nav-back" id="v5Back" type="button" aria-label="Volver a inicio">← Inicio</button>
+        <span class="v5-brand">SHEMLUM <b>· V</b></span>
+        <span class="v5-progress" id="v5Progress">01 / 07</span>
+      </nav>
+      <div class="v5-stage" id="v5Stage">
+        <!-- 1: El sendero -->
+        <article class="v5-view is-active v5-forest" data-v5-scene="0">
+          <div class="v5-scene-eyebrow">UNA HISTORIA PARA MI CHIQUI · OCTUBRE 2026</div>
+          <div class="v5-hero-illustration" aria-hidden="true">
+            <div class="v5-hero-glow"></div><div class="v5-pumpkin p-left"><i></i><b>⌣</b></div><div class="v5-pumpkin p-right"><i></i><b>⌣</b></div>
+            <svg viewBox="0 0 600 295" role="presentation" preserveAspectRatio="xMidYMax meet">
+              <defs><linearGradient id="v5Trail" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#53352d"/><stop offset=".5" stop-color="#e1a04b"/><stop offset="1" stop-color="#53352d"/></linearGradient></defs>
+              <path d="M0 225 Q115 172 205 226 T390 215 T600 210 L600 295 L0 295Z" fill="#0d1c23"/>
+              <path d="M280 295 Q320 238 300 188 Q277 164 285 144 L321 144 Q340 189 317 220 Q307 250 350 295Z" fill="url(#v5Trail)" opacity=".8"/>
+              <g fill="#09171c"><path d="M50 265 L58 74 28 102 57 36 83 99 63 82 68 265Z"/><path d="M500 265 L510 30 477 82 507 7 546 80 519 66 527 265Z"/><path d="M130 274 L132 110 108 137 132 70 158 137 140 117 151 274Z"/><path d="M430 270 L437 120 409 149 437 73 466 147 445 127 448 270Z"/></g>
+              <g fill="#d58b2e"><circle cx="287" cy="238" r="3"/><circle cx="303" cy="225" r="3"/><circle cx="318" cy="245" r="3"/><circle cx="333" cy="266" r="3"/><circle cx="274" cy="266" r="3"/><circle cx="303" cy="278" r="3"/></g>
+              <g fill="#e9ad50" opacity=".75"><circle cx="178" cy="134" r="2.5"/><circle cx="395" cy="150" r="3"/><circle cx="465" cy="75" r="2"/><circle cx="250" cy="75" r="3"/></g>
+            </svg>
+          </div>
+          <div class="v5-hero-copy">
+            <span class="v5-small-line">CAPÍTULO CINCO</span>
+            <h1>Entre <em>dos</em><br>mundos<span class="v5-period">.</span></h1>
+            <p>Hay noches que parecen sacadas de un cuento. Y hay personas con quienes cualquier mundo se siente como hogar.</p>
+            <button class="v5-primary" type="button" data-v5-next>Seguir las flores <span>✦</span></button>
+            <div class="v5-hint">Un pequeño cuento de Halloween, cempasúchil y amor ♡</div>
+          </div>
+        </article>
+
+        <!-- 2: Fantasmitas -->
+        <article class="v5-view v5-ghosts-scene" data-v5-scene="1" hidden>
+          <div class="v5-section-head"><span>EL BOSQUE SUSURRA · I</span><h2>Hay <em>cinco</em><br>almas traviesas.</h2><p>Dicen que en este bosque viven cinco fantasmitas. Cada uno esconde una foto que podría hacernos reír. ¿Los encontramos?</p></div>
+          <div class="v5-ghost-game" id="v5GhostGame" aria-label="Encuentra los cinco fantasmas escondidos">
+            <div class="v5-ghost-branch br-a" aria-hidden="true"></div><div class="v5-ghost-branch br-b" aria-hidden="true"></div>
+            <button class="v5-ghost g1" data-ghost="0" aria-label="Encontrar fantasmita 1"><span>● ●</span></button>
+            <button class="v5-ghost g2" data-ghost="1" aria-label="Encontrar fantasmita 2"><span>● ●</span></button>
+            <button class="v5-ghost g3" data-ghost="2" aria-label="Encontrar fantasmita 3"><span>● ●</span></button>
+            <button class="v5-ghost g4" data-ghost="3" aria-label="Encontrar fantasmita 4"><span>● ●</span></button>
+            <button class="v5-ghost g5" data-ghost="4" aria-label="Encontrar fantasmita 5"><span>● ●</span></button>
+            <div class="v5-ghost-ground"></div>
+          </div>
+          <div class="v5-game-bottom"><div class="v5-counter" id="v5GhostCount">✧ ✧ ✧ ✧ ✧ <span>0 de 5</span></div><div class="v5-reveal-message" id="v5GhostMessage" role="status" aria-live="polite">Toca un fantasmita para descubrir su foto...</div></div>
+          <div class="v5-photo-modal" id="v5GhostPhotoModal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Fotografía del fantasmita">
+            <div class="v5-photo-backdrop" data-close-ghost-photo></div>
+            <div class="v5-photo-panel">
+              <button class="v5-photo-close" type="button" id="v5GhostPhotoClose" aria-label="Cerrar fotografía">×</button>
+              <span class="v5-photo-eyebrow">UN RECUERDO TRAVIESO · <span id="v5GhostPhotoNumber">1 / 5</span></span>
+              <div class="v5-photo-frame"><img id="v5GhostPhotoImage" src="" alt="Foto graciosa de nosotros" /></div>
+              <div class="v5-photo-bottom"><span>JAJAJA ♡</span><button type="button" class="v5-photo-done" data-close-ghost-photo>Guardar este recuerdo ✦</button></div>
+            </div>
+          </div>
+          <button class="v5-primary" id="v5GhostNext" type="button" data-v5-next disabled>Continuar el camino <span>→</span></button>
+        </article>
+
+        <!-- 3: Cementerio -->
+        <article class="v5-view v5-graves-scene" data-v5-scene="2" hidden>
+          <div class="v5-section-head"><span>DESCANSEN EN PAZ · II</span><h2>Lo que dejamos<br><em>atrás.</em></h2><p>No todo lo que se entierra tiene que dar miedo. Algunas cosas se quedan aquí para dejar espacio a otras más bonitas.</p></div>
+          <div class="v5-cemetery" role="group" aria-label="Lápidas con mensajes secretos">
+            <button class="v5-grave" data-grave="0"><span class="v5-grave-rip">R.I.P.</span><span>Los planes<br>perfectos</span><small>Tócame</small></button>
+            <button class="v5-grave" data-grave="1"><span class="v5-grave-rip">R.I.P.</span><span>El miedo<br>a empezar</span><small>Tócame</small></button>
+            <button class="v5-grave" data-grave="2"><span class="v5-grave-rip">R.I.P.</span><span>Las prisas</span><small>Tócame</small></button>
+            <button class="v5-grave" data-grave="3"><span class="v5-grave-rip">R.I.P.</span><span>El orgullo</span><small>Tócame</small></button>
+          </div>
+          <div class="v5-story-note" id="v5GraveNote" role="status" aria-live="polite">Cuatro secretos descansan bajo estas lápidas.</div>
+          <button class="v5-primary" type="button" data-v5-next>Seguir al resplandor <span>✧</span></button>
+        </article>
+
+        <!-- 4: Ofrenda -->
+        <article class="v5-view v5-altar-scene" data-v5-scene="3" hidden>
+          <div class="v5-section-head"><span>EL ALTAR DE LO VIVIDO · III</span><h2>Cinco meses.<br><em>Cinco luces.</em></h2><p>Inspirado en las flores, las velas y el recuerdo del Día de Muertos. Aquí encendemos una luz por cada mes que hemos compartido.</p></div>
+          <div class="v5-altar" role="group" aria-label="Cinco velas que puedes encender">
+            <div class="v5-altar-arch" aria-hidden="true">✿ <span>♡</span> ✿</div>
+            <div class="v5-candles">
+              <button class="v5-candle" data-candle="0" aria-label="Encender vela del primer mes"><span class="v5-flame"></span><span class="v5-wick"></span><span class="v5-wax">I</span></button>
+              <button class="v5-candle" data-candle="1" aria-label="Encender vela del segundo mes"><span class="v5-flame"></span><span class="v5-wick"></span><span class="v5-wax">II</span></button>
+              <button class="v5-candle" data-candle="2" aria-label="Encender vela del tercer mes"><span class="v5-flame"></span><span class="v5-wick"></span><span class="v5-wax">III</span></button>
+              <button class="v5-candle" data-candle="3" aria-label="Encender vela del cuarto mes"><span class="v5-flame"></span><span class="v5-wick"></span><span class="v5-wax">IV</span></button>
+              <button class="v5-candle" data-candle="4" aria-label="Encender vela del quinto mes"><span class="v5-flame"></span><span class="v5-wick"></span><span class="v5-wax">V</span></button>
+            </div>
+            <div class="v5-altar-table" aria-hidden="true"><span>✺ ✺ ✺</span><strong>Samuel ♡ Lupita</strong><span>✺ ✺ ✺</span></div>
+          </div>
+          <div class="v5-story-note" id="v5CandleMessage" aria-live="polite">Toca una velita para darle luz a un recuerdo de lo que somos.</div>
+          <p class="v5-count" id="v5CandleCount">0 de 5 luces encendidas</p>
+          <button class="v5-primary" id="v5CandleNext" type="button" data-v5-next disabled>Seguir nuestra historia <span>→</span></button>
+        </article>
+
+        <!-- 5: tallar calabaza -->
+        <article class="v5-view v5-pumpkin-scene" data-v5-scene="4" hidden>
+          <div class="v5-section-head"><span>UN PEQUEÑO HECHIZO · IV</span><h2>Tu calabaza,<br><em>tu magia.</em></h2><p>¿Y si esta noche creamos algo entre los dos? Elige sus ojitos y su sonrisa, y deja que brille.</p></div>
+          <div class="v5-carving-layout">
+            <div class="v5-pumpkin-preview" id="v5PumpkinPreview">
+              <svg class="v5-pumpkin-svg" viewBox="0 0 330 300" role="img" aria-label="Calabaza que se personaliza al elegir la cara">
+                <defs>
+                  <radialGradient id="v5PumpkinGradient"><stop stop-color="#f4a638"/><stop offset=".75" stop-color="#d46a25"/><stop offset="1" stop-color="#93401f"/></radialGradient>
+                  <filter id="v5FaceGlow"><feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                </defs>
+                <path d="M162 80 Q150 44 179 31 Q184 54 169 89" fill="#335d35" stroke="#183a31" stroke-width="4"/>
+                <path d="M143 83 Q100 47 86 83 Q42 86 42 153 Q31 240 110 263 Q170 292 235 260 Q294 238 285 159 Q290 83 243 83 Q215 52 182 78 Q166 68 143 83Z" fill="url(#v5PumpkinGradient)" stroke="#6d321c" stroke-width="5"/>
+                <path d="M113 86 Q72 168 112 257 M216 82 Q250 166 215 257 M157 85 Q143 175 162 279 M189 84 Q208 166 184 278" fill="none" stroke="#a54d22" stroke-width="5" opacity=".5"/>
+                <g class="v5-face" id="v5PumpkinFace" fill="#261d1a"><g id="v5EyeShapes"></g><g id="v5NoseShape"></g><g id="v5MouthShape"></g></g>
+              </svg>
+              <div class="v5-pumpkin-shine" aria-hidden="true">✧ ✦ ✧</div>
+            </div>
+            <div class="v5-carving-controls">
+              <fieldset><legend>01 · Sus ojos</legend><div class="v5-option-row"><button type="button" class="v5-option is-selected" data-v5-eye="tri">▲ Triángulos</button><button type="button" class="v5-option" data-v5-eye="round">● Redonditos</button><button type="button" class="v5-option" data-v5-eye="happy">⌣ Felices</button></div></fieldset>
+              <fieldset><legend>02 · Su nariz</legend><div class="v5-option-row"><button type="button" class="v5-option is-selected" data-v5-nose="tri">✦ Triángulo</button><button type="button" class="v5-option" data-v5-nose="none">Sin nariz</button></div></fieldset>
+              <fieldset><legend>03 · Su sonrisa</legend><div class="v5-option-row"><button type="button" class="v5-option is-selected" data-v5-mouth="smile">☻ Sonriente</button><button type="button" class="v5-option" data-v5-mouth="spooky">☠ Traviesa</button><button type="button" class="v5-option" data-v5-mouth="heart">♡ Corazón</button></div></fieldset>
+              <button class="v5-secondary" type="button" id="v5LightPumpkin">✦ Encender mi calabaza</button>
+            </div>
+          </div>
+          <div class="v5-story-note" id="v5PumpkinMessage" role="status" aria-live="polite">Cada calabaza es distinta. Qué bonito, ¿no?</div>
+          <button class="v5-primary" type="button" id="v5PumpkinNext" data-v5-next disabled>Descubrir quién nos espera <span>→</span></button>
+        </article>
+
+        <!-- 6: Catrina y Catrín -->
+        <article class="v5-view v5-couple-scene" data-v5-scene="5" hidden>
+          <div class="v5-section-head"><span>UN ENCUENTRO · V</span><h2>En cualquier mundo,<br><em>tú y yo.</em></h2><p>Hasta en una noche llena de magia y misterio, solo hay alguien con quien quiero estar.</p></div>
+          <div class="v5-couple-art" aria-label="Un Catrín y una Catrina de cuento inspirados en Samuel y Lupita">
+            <div class="v5-love-halo" aria-hidden="true">✦ ♡ ✦</div>
+            <svg viewBox="0 0 500 350" role="img" aria-label="Ilustración de un Catrín y una Catrina tomados de la mano">
+              <g class="v5-boy"><path d="M90 329 Q93 220 160 220 Q220 224 218 329" fill="#172e32" stroke="#b18c53" stroke-width="4"/><path d="M148 227 L164 284 181 224" fill="#fff2d5"/><path d="M157 242 L167 224 177 243 166 271" fill="#b45d50"/><path d="M118 110 L120 93 Q103 25 164 25 Q220 27 210 98 L210 115" fill="#221b22"/><ellipse cx="164" cy="145" rx="67" ry="82" fill="#eadcc7" stroke="#493c36" stroke-width="4"/><path d="M104 125 Q92 86 126 70 Q147 52 188 68 Q225 87 222 126 Q210 98 189 86 Q132 111 104 125" fill="#29222b"/><ellipse cx="139" cy="151" rx="19" ry="24" fill="#342e38"/><ellipse cx="189" cy="151" rx="19" ry="24" fill="#342e38"/><circle cx="139" cy="150" r="5" fill="#e7a34e"/><circle cx="189" cy="150" r="5" fill="#e7a34e"/><path d="M161 167 L153 185 L170 185Z" fill="#342e38"/><path d="M140 206 Q165 221 190 205" fill="none" stroke="#9a635c" stroke-width="4" stroke-linecap="round"/><path d="M143 202 L143 215 M156 208 L156 220 M168 208 L168 220 M181 207 L181 217" stroke="#9a635c" stroke-width="2"/></g>
+              <g class="v5-girl"><path d="M269 329 Q265 232 335 222 Q406 225 414 329Z" fill="#7b344c" stroke="#d39b55" stroke-width="4"/><path d="M323 222 L338 268 352 225" fill="#e7bd7e"/><path d="M272 118 Q263 15 338 21 Q419 13 404 124 L425 256 Q406 265 391 241 L285 242 Q259 231 272 118Z" fill="#231b29"/><ellipse cx="339" cy="146" rx="67" ry="82" fill="#f2e1ca" stroke="#493c36" stroke-width="4"/><ellipse cx="314" cy="150" rx="20" ry="24" fill="#54354b"/><ellipse cx="365" cy="150" rx="20" ry="24" fill="#54354b"/><circle cx="314" cy="149" r="5" fill="#efab5d"/><circle cx="365" cy="149" r="5" fill="#efab5d"/><path d="M339 166 L331 185 L347 185Z" fill="#54354b"/><path d="M317 205 Q339 220 363 205" fill="none" stroke="#ac605c" stroke-width="4" stroke-linecap="round"/><path d="M322 202 L322 218 M333 209 L333 222 M346 209 L346 222 M358 203 L358 219" stroke="#ac605c" stroke-width="2"/><path d="M267 119 Q279 55 320 57 M409 120 Q396 57 358 56" fill="none" stroke="#231b29" stroke-width="26"/><g fill="#e3a645"><circle cx="285" cy="86" r="15"/><circle cx="390" cy="75" r="16"/><circle cx="310" cy="58" r="12"/><circle cx="361" cy="55" r="15"/></g><g fill="#713b50"><circle cx="285" cy="86" r="5"/><circle cx="390" cy="75" r="5"/><circle cx="310" cy="58" r="4"/><circle cx="361" cy="55" r="5"/></g></g>
+              <path d="M208 281 Q238 260 252 274 Q261 261 287 281" fill="none" stroke="#ebd6b9" stroke-width="12" stroke-linecap="round"/>
+              <g fill="#f3bc65"><circle cx="246" cy="98" r="4"/><circle cx="255" cy="80" r="3"/><circle cx="235" cy="72" r="2"/></g>
+            </svg>
+            <div class="v5-couple-foot">EL CATRÍN & LA CATRINA · EDICIÓN SHEMLUM</div>
+          </div>
+          <p class="v5-couple-thought">Toca el corazón y descubre lo que he guardado para ti.</p>
+          <button class="v5-heart-button" id="v5HeartReveal" type="button" aria-label="Abrir carta de amor">♡</button>
+        </article>
+
+        <!-- 7: carta definitiva -->
+        <article class="v5-view v5-letter-scene" data-v5-scene="6" hidden>
+          <div class="v5-section-head v5-letter-heading"><span>EL ÚLTIMO SECRETO · VI</span><h2>Para <em>mi chiqui.</em></h2><p>Algunas palabras merecen guardarse donde ni el tiempo pueda borrarlas.</p></div>
+          <div class="v5-letter-paper">
+            <div class="v5-letter-seal">S ♡ L</div>
+            <div class="v5-letter-copy">
+              <p>Mi chiqui:</p>
+              <p>Hoy cumplimos cinco meses juntos, y aunque cada uno de ellos ha sido especial, siento que este último me ha enseñado algo muy bonito sobre nosotros.</p>
+              <p>Sabes que últimamente estoy atravesando una etapa diferente, una en la que estoy apostando mucho por mis sueños y por un proyecto en el que tengo puesta toda mi fe. Y en medio de todo eso, has estado tú.</p>
+              <p>Quiero agradecerte por tu paciencia, por tu comprensión y por cada vez que has puesto de tu parte para que podamos seguir disfrutando de nuestro tiempo juntos. Por entender mi situación sin hacerme sentir que tengo que ofrecerte más de lo que hoy puedo. Por demostrarme que, para pasar un día hermoso contigo, no necesitamos gastar mucho.</p>
+              <p>Quizá para ti sean pequeños detalles, pero para mí significan muchísimo.</p>
+              <p>Me hace inmensamente feliz saber que tengo a mi lado a alguien que no solamente quiere compartir los momentos bonitos, sino que también está dispuesta a acompañarme mientras trabajo para construir algo mejor.</p>
+              <p>Y quiero que sepas que no doy por sentado nada de eso.</p>
+              <p>Te mereces cosas preciosas, mi amor. Te mereces sentirte amada, valorada y cuidada todos los días. Y aunque todavía me falte mucho por conseguir, hay algo que sí puedo darte desde ahora y que nunca quiero que te falte: un amor sincero, lleno de cariño, esfuerzo y ganas de hacerte feliz.</p>
+              <p>Gracias por estos cinco meses, por creer en mí y, sobre todo, por ser tú.</p>
+              <p class="v5-final-promise"><strong>Si pudiera elegirte de nuevo, en este mundo o en cualquier otro, siempre serías tú.</strong></p>
+              <p>Felices cinco meses, mi amor. Te amo. ❤️</p>
+            </div>
+            <div class="v5-letter-signature">Con todo mi amor,<br><b>Samuel</b><span>CAPÍTULO V · CINCO MESES JUNTOS</span></div>
+          </div>
+          <div class="v5-ending"><span>✿ ✦ ♡ ✦ ✿</span><h3>En todos mis mundos,<br>te elegiría a ti.</h3><p>Feliz quinto mes, mi chiqui.</p><button class="v5-secondary" type="button" id="v5Restart">Volver a vivir nuestra noche ↺</button></div>
+        </article>
+      </div>
+    </section>
+
     <section class="screen" id="roulette">
       <div class="topbar">
         <button class="ghost-btn" id="backHomeFromRoulette">← Inicio</button>
@@ -562,5 +730,6 @@ Pizza</textarea>
   <script src="js/chapter4.js?v=20260928-v4"></script>
   <script src="js/chapter2.js?v=20260829-finalfix"></script>
   <script src="js/chapter3.js?v=20260829-4"></script>
+  <script src="js/chapter5.js?v=20261027-1"></script>
 </body>
 </html>
