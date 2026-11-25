@@ -6,6 +6,7 @@ const screens = {
   chapter3: document.getElementById("chapter3"),
   chapter4: document.getElementById("chapter4"),
   chapter5: document.getElementById("chapter5"),
+  chapter6: document.getElementById("chapter6"),
   roulette: document.getElementById("roulette"),
 };
 
@@ -15,6 +16,7 @@ const openChapterTwo = document.getElementById("openChapterTwo");
 const openChapterThree = document.getElementById("openChapterThree");
 const openChapterFour = document.getElementById("openChapterFour");
 const openChapterFive = document.getElementById("openChapterFive");
+const openChapterSix = document.getElementById("openChapterSix");
 const openRouletteBtn = document.getElementById("openRouletteBtn");
 const backHomeFromChapter = document.getElementById("backHomeFromChapter");
 const backHomeFromChapterTwo = document.getElementById("backHomeFromChapterTwo");
@@ -79,6 +81,11 @@ openChapterFour?.addEventListener("click", () => {
 openChapterFive?.addEventListener("click", () => {
   if (typeof resetChapterFive === "function") resetChapterFive();
   goToScreen(screens.home, screens.chapter5);
+});
+
+openChapterSix?.addEventListener("click", () => {
+  if (typeof resetChapterSix === "function") resetChapterSix();
+  goToScreen(screens.home, screens.chapter6);
 });
 
 openRouletteBtn?.addEventListener("click", () => {

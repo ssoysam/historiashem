@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="css/chapter4.css?v=20260928-v4" />
   <link rel="stylesheet" href="css/roulette.css" />
   <link rel="stylesheet" href="css/chapter5.css?v=20261027-1" />
+  <link rel="stylesheet" href="css/chapter6.css?v=20261125-final-noir" />
 </head>
 <body>
   <main class="app">
@@ -68,6 +69,10 @@
           <button type="button" class="chapter-card chapter-card-halloween" id="openChapterFive">
             <span class="chapter-number">V</span>
             <span class="chapter-info"><span class="chapter-title">Capítulo V</span><span class="chapter-desc">Entre dos mundos · 🎃</span></span>
+          </button>
+          <button type="button" class="chapter-card chapter-card-detective" id="openChapterSix">
+            <span class="chapter-number">VI</span>
+            <span class="chapter-info"><span class="chapter-title">Capítulo VI</span><span class="chapter-desc">Las horas desaparecidas · 🔒</span></span>
           </button>
         </div>
 
@@ -681,6 +686,155 @@
       </div>
     </section>
 
+    <!-- SHEMLUM VI — miniinvestigación romántica, independiente de Operación Punto Ciego -->
+    <section class="screen v6-chapter" id="chapter6" aria-label="Capítulo VI: El caso de las horas desaparecidas">
+      <div class="v6-haze" aria-hidden="true"></div>
+      <nav class="v6-nav" aria-label="Navegación del capítulo VI">
+        <button id="v6Back" type="button" class="v6-back">← Volver</button>
+        <span class="v6-brand">SHEMLUM <b>· VI</b></span>
+        <span class="v6-progress" id="v6Progress">CLASIFICADO</span>
+      </nav>
+      <div class="v6-stage">
+        <article class="v6-view v6-lock-screen is-current" data-v6-scene="0">
+          <div class="v6-terminal">
+            <div class="v6-lock-icon">⌁ <span>🔒</span> ⌁</div>
+            <div class="v6-micro">SHEMLUM / ACCESO A ARCHIVOS / 006</div>
+            <div class="v6-stamp">DOCUMENTO CLASIFICADO</div>
+            <h1>Expediente <em>006.</em></h1>
+            <p>Un caso especial permanece bajo llave.<br>Solo un código de cuatro dígitos puede abrirlo.</p>
+            <form id="v6PinForm" autocomplete="off">
+              <label for="v6Pin">CÓDIGO DE AUTORIZACIÓN</label>
+              <input id="v6Pin" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="••••" aria-describedby="v6PinMsg" required>
+              <button class="v6-primary" type="submit">Comprobar código ↗</button>
+            </form>
+            <div class="v6-feedback" id="v6PinMsg" role="status" aria-live="polite">Esperando a nuestra detective...</div>
+          </div>
+          <div class="v6-lock-footer">28 · 11 · 2026 <span>✦</span> SEIS MESES EN ARCHIVO</div>
+        </article>
+
+        <article class="v6-view v6-intro" data-v6-scene="1" hidden>
+          <div class="v6-kicker">NOVIEMBRE DE 2026</div>
+          <div class="v6-intro-portraits">
+            <img src="assets/chapter6/fotos/perfil_chiqui_01.jpg" alt="Lupita haciendo la misma seña con el dedo" class="v6-portrait v6-photo-left" loading="lazy">
+            <span class="v6-evidence-heart">♡</span>
+            <img src="assets/chapter6/fotos/perfil_bombo_01.jpg" alt="Retrato de Samuel" class="v6-portrait v6-photo-right" loading="lazy">
+          </div>
+          <h1>El caso de las<br><em>horas desaparecidas.</em></h1>
+          <p>Dos personas. Seis meses. Muchísimos momentos.<br>Y un misterio que ni el mejor detective ha podido resolver.</p>
+          <div class="v6-typebar"><span class="v6-dot"></span> NUEVA MISIÓN ASIGNADA: ENCONTRAR EL TIEMPO PERDIDO</div>
+          <button class="v6-primary" type="button" id="v6Start">Abrir la investigación <span>→</span></button>
+        </article>
+
+        <article class="v6-view v6-desk-scene" data-v6-scene="2" hidden>
+          <header class="v6-section-title"><span>ETAPA 01 · ESCENA DEL MISTERIO</span><h2>Algo falta<br>en este <em>escritorio.</em></h2><p>Hay cuatro objetos sospechosos. Tócalos y encuentra todas las pistas.</p></header>
+          <div class="v6-desk" id="v6Desk">
+            <div class="v6-desk-scribble">S + L <span>♡</span></div>
+            <button class="v6-object v6-obj-1" data-v6-object="0" type="button"><span class="v6-object-icon">✉</span><strong>SOBRE 01</strong><small>REVISAR</small></button>
+            <button class="v6-object v6-obj-2" data-v6-object="1" type="button"><span class="v6-object-icon">⌚</span><strong>RELOJ 02</strong><small>REVISAR</small></button>
+            <button class="v6-object v6-obj-3" data-v6-object="2" type="button"><span class="v6-object-icon">▣</span><strong>FOTO 03</strong><small>REVISAR</small></button>
+            <button class="v6-object v6-obj-4" data-v6-object="3" type="button"><span class="v6-object-icon">♫</span><strong>CINTA 04</strong><small>REVISAR</small></button>
+            <span class="v6-desk-seal">EVIDENCIA · S. &amp; L.</span>
+          </div>
+          <div class="v6-status-line"><span id="v6Found">0 / 4 PISTAS REGISTRADAS</span><span>CASO 006</span></div>
+          <button class="v6-primary" id="v6GoGallery" type="button" disabled>Revisar las pistas →</button>
+        </article>
+
+        <article class="v6-view v6-gallery-scene" data-v6-scene="3" hidden>
+          <header class="v6-section-title"><span>ETAPA 02 · ARCHIVO DE EVIDENCIAS</span><h2>Las fotografías<br><em>no mienten.</em></h2><p>Abre las fotos y busca las letras escondidas en cuatro de ellas. Ordénalas según el número de cada foto para descubrir la palabra secreta.</p></header>
+          <div class="v6-photo-wall">
+            <button type="button" class="v6-photo-card" data-v6-photo="4"><img src="assets/chapter6/fotos/perfil_bombo_02.jpg" alt="Retrato divertido de Samuel" loading="lazy"><span>ARCHIVO COMPLEMENTARIO</span></button>
+            <button type="button" class="v6-photo-card" data-v6-photo="1"><img src="assets/chapter6/fotos/foto_paisaje.jpg" alt="Samuel y Lupita junto a un río" loading="lazy"><span>FOTOGRAFÍA · 02</span></button>
+            <button type="button" class="v6-photo-card" data-v6-photo="0"><img src="assets/chapter6/fotos/foto_bebidas.jpg" alt="Samuel y Lupita brindando" loading="lazy"><span>FOTOGRAFÍA · 01</span></button>
+            <button type="button" class="v6-photo-card" data-v6-photo="3"><img src="assets/chapter6/fotos/silencio_bombo.jpg" alt="Samuel haciendo una señal de silencio" loading="lazy"><span>FOTOGRAFÍA · 04</span></button>
+            <button type="button" class="v6-photo-card" data-v6-photo="5"><img src="assets/chapter6/fotos/perfil_chiqui_02.jpg" alt="Retrato de Lupita abrigada" loading="lazy"><span>ARCHIVO COMPLEMENTARIO</span></button>
+            <button type="button" class="v6-photo-card" data-v6-photo="2"><img src="assets/chapter6/fotos/archivo_silencio_02.jpg" alt="Lupita haciendo una señal de silencio" loading="lazy"><span>FOTOGRAFÍA · 03</span></button>
+          </div>
+          <p class="v6-gallery-hint" id="v6OpenedPhotos">0 / 4 fotos con pistas revisadas</p>
+          <form class="v6-answer-form" id="v6WordForm" autocomplete="off">
+            <label for="v6Word">ESCRIBE LA PALABRA DE CUATRO LETRAS</label>
+            <div class="v6-answer-line"><input id="v6Word" maxlength="4" placeholder="_ _ _ _" autocomplete="off" autocapitalize="characters"><button type="submit" class="v6-primary">Comprobar</button></div>
+            <div id="v6WordMsg" class="v6-feedback" aria-live="polite">Las pruebas aún guardan un mensaje.</div>
+          </form>
+        </article>
+
+        <article class="v6-view v6-video-scene" data-v6-scene="4" hidden>
+          <header class="v6-section-title"><span>ETAPA 03 · GRABACIONES RECUPERADAS</span><h2>El tiempo<br><em>en movimiento.</em></h2><p>Encontramos dos videos de nuestros recuerdos. No tienen audio. Solo hace falta mirar.</p></header>
+          <div class="v6-video-grid">
+            <div class="v6-reel"><div class="v6-reel-top"><span class="v6-blink"></span> CÁMARA 01 <small>GRABACIÓN RECUPERADA</small></div><video controls muted playsinline preload="metadata" poster="assets/chapter6/video_clips/portada_a.jpg"><source src="assets/chapter6/video_clips/grabacion_a.mp4" type="video/mp4">Este navegador no puede mostrar el video.</video><div class="v6-reel-foot">FRAGMENTO A · SIN AUDIO</div></div>
+            <div class="v6-reel"><div class="v6-reel-top"><span class="v6-blink"></span> CÁMARA 02 <small>GRABACIÓN RECUPERADA</small></div><video controls muted playsinline preload="metadata" poster="assets/chapter6/video_clips/portada_b.jpg"><source src="assets/chapter6/video_clips/grabacion_b.mp4" type="video/mp4">Este navegador no puede mostrar el video.</video><div class="v6-reel-foot">FRAGMENTO B · SIN AUDIO</div></div>
+          </div>
+          <div class="v6-puzzle-card">
+            <span>INFORME DEL INVESTIGADOR</span>
+            <h3>¿Qué es lo que siempre parece desaparecer cuando estamos juntos?</h3>
+            <form id="v6TimeForm" class="v6-answer-form" autocomplete="off"><div class="v6-answer-line"><input id="v6Time" placeholder="Escribe tu respuesta..." autocomplete="off"><button type="submit" class="v6-primary">Resolver</button></div><div id="v6TimeMsg" class="v6-feedback" aria-live="polite">Pista: no desaparecen los recuerdos.</div></form>
+          </div>
+        </article>
+
+        <article class="v6-view v6-solved-scene" data-v6-scene="5" hidden>
+          <div class="v6-stamp v6-solved-stamp">✓ CASO RESUELTO</div>
+          <div class="v6-solved-frame"><img src="assets/chapter6/fotos/caso_resuelto_beso.jpg" alt="Samuel y Lupita compartiendo un beso" loading="lazy"></div>
+          <h2>El tiempo <em>no desaparece.</em></h2>
+          <p>Solo hay momentos tan bonitos que nunca parecen durar lo suficiente.</p>
+          <p class="v6-solved-small">INFORME 006 · CONCLUSIÓN FINAL</p>
+          <button class="v6-primary" type="button" id="v6OpenLetter">Abrir la última carta ♡</button>
+        </article>
+
+        <article class="v6-view v6-letter-scene" data-v6-scene="6" hidden>
+          <header class="v6-section-title"><span>ARCHIVO FINAL · DESCLASIFICADO</span><h2>Para <em>mi chiqui.</em></h2><p>La evidencia más importante no estaba en una fotografía.</p></header>
+          <div class="v6-letter-paper">
+            <div class="v6-letter-seal">S ♡ L <span>EXPEDIENTE 006</span></div>
+            <div class="v6-letter-copy">
+              <p><strong>Mi querida chiqui:</strong></p>
+              <p>Hoy cumplimos seis meses juntos, mi amor. Medio año desde que comenzamos esta hermosa historia y, aunque parezca increíble, siento que el tiempo ha pasado demasiado rápido.</p>
+              <p>Cuando recuerdo todo lo que hemos compartido, las experiencias que hemos vivido y las cosas que hemos aprendido juntos, me doy cuenta de lo valioso que ha sido cada momento a tu lado.</p>
+              <p>Me llena de felicidad sentir que estamos haciendo las cosas bien, que estamos construyendo algo tan bonito, sin prisas y a nuestro propio ritmo. Y aunque ya llevamos medio año juntos, me fascina saber que todavía quedan tantas cosas por descubrir el uno del otro.</p>
+              <p>¿Sabes qué es algo que me encanta de nosotros, mi chiqui? Que todavía me sigues sorprendiendo. Cada día descubro algo nuevo de ti, aprendo cosas que antes desconocía y vivo experiencias a tu lado que jamás imaginé. Y créeme, mi amor, que no cambiaría ninguna de ellas por nada del mundo.</p>
+              <p><em>Y si algún día alguien me pidiera investigar por qué soy tan feliz contigo, no necesitaría ser Sherlock Holmes para resolverlo. Bastaría con revisar nuestras conversaciones, nuestras risas y todos esos pequeños momentos que, sin darnos cuenta, se han convertido en los recuerdos más bonitos de nuestra historia.</em></p>
+              <p>Hay algo que últimamente he notado y que me parece muy curioso. ¿Recuerdas cuando te decía que de alguna manera podía hacer que el tiempo se detuviera mientras estábamos juntos? Que podía disfrutar tanto de tu compañía que las horas parecían pasar más despacio.</p>
+              <p>Pues creo que ese pequeño superpoder ha dejado de funcionar, JAJAJA.</p>
+              <p>Porque ahora, mi amor, puedo pasar dos, tres o hasta seis horas contigo y sentir que apenas han transcurrido unos minutos. Y no es porque haya dejado de disfrutar esos momentos, sino todo lo contrario. <strong>Disfruto tanto estar contigo que, por más tiempo que pasemos juntos, siempre termino deseando un ratito más.</strong></p>
+              <p>Un abrazo más, un beso más, una conversación más... Y lo más hermoso es que, incluso después de tantas horas, siempre encontramos algo nuevo de qué hablar.</p>
+              <p><em>De hecho, creo que aquí tenemos nuestro primer misterio sin resolver: ¿cómo es posible que seis horas a tu lado se sientan como seis minutos? JAJAJA. Por más que busco pistas y explicaciones, siempre llego a la misma conclusión: me encanta tanto tu compañía que el tiempo parece olvidarse de nosotros.</em></p>
+              <p>A veces me pongo a pensar en cuánto te amo y llego a la misma conclusión: creo que las palabras ya no son suficientes para describir todo lo que siento por ti.</p>
+              <p>Pero quizá tampoco necesito encontrarlas todas, porque hay sentimientos que se expresan mejor con una mirada, con un abrazo o con esos pequeños detalles que hacen tan especial nuestra relación.</p>
+              <p>Gracias por estos seis meses, mi niña hermosa. Gracias por todo lo que me has enseñado, por las experiencias que hemos compartido, por las sonrisas que me regalas y por permitirme conocer cada día un poquito más a esa maravillosa mujer de la que me enamoré.</p>
+              <p>Me emociona muchísimo pensar en todas esas pequeñas cosas que todavía podemos descubrir juntos, en las conversaciones que aún no hemos tenido y en los momentos que todavía nos pueden sorprender.</p>
+              <p><strong>Porque si algo he aprendido durante estos seis meses, mi amor, es que no importa cuánto tiempo pase a tu lado, sino lo hermoso que haces cada instante que compartimos.</strong></p>
+              <p><em>Y si tuviera que guardar nuestra historia en un expediente secreto, escribiría en su primera página: «Caso 006: seis meses enamorado de mi chiqui». Dentro guardaría cada recuerdo, cada fotografía y cada instante especial que hemos vivido. Y aunque todavía existan tantos misterios por descubrir, hay algo de lo que tengo pruebas más que suficientes: lo muchísimo que te amo.</em></p>
+              <p>Feliz medio año, mi preciosa chiqui. Gracias por hacer de estos seis meses una parte tan especial de mi vida.</p>
+              <p>Te amo con todo mi corazón, mi bombo hermoso. ❤️</p>
+              <p><strong>Con muchísimo amor,<br>Tu bombo negrito favorito. ❤️</strong></p>
+            </div>
+          </div>
+          <div class="v6-after-letter"><p>Y, mi amor... hay algo más que todavía tengo que decirte.</p><button class="v6-primary" id="v6SecretNext" type="button">¿Un último secreto? →</button></div>
+        </article>
+
+        <article class="v6-view v6-portal-scene" data-v6-scene="7" hidden>
+          <div class="v6-glitch-label">MENSAJE ENTRANTE · PRIORIDAD ALTA</div>
+          <div class="v6-warning-glyph">◈</div>
+          <p class="v6-portal-meta">NUEVO EXPEDIENTE DETECTADO</p>
+          <h2>OPERACIÓN<br><em>PUNTO CIEGO</em></h2>
+          <div class="v6-portal-rule"></div>
+          <p>Detectives, han recuperado un archivo que no debería existir.<br>La siguiente investigación será diferente.</p>
+          <div class="v6-pending">⏳ CONEXIÓN CON CENTRAL PENDIENTE</div>
+          <p class="v6-portal-small">El gran caso se añadirá aquí en la siguiente fase del proyecto.</p>
+          <button class="v6-secondary" id="v6PortalHome" type="button">← Volver a nuestros capítulos</button>
+        </article>
+      </div>
+
+      <div class="v6-modal" id="v6Modal" hidden role="dialog" aria-modal="true" aria-labelledby="v6ModalTitle">
+        <div class="v6-modal-backdrop" data-v6-close></div>
+        <div class="v6-modal-card">
+          <button type="button" class="v6-modal-close" id="v6ModalClose" aria-label="Cerrar evidencia">✕</button>
+          <span id="v6ModalMeta" class="v6-modal-meta">ARCHIVO CONFIDENCIAL</span>
+          <h3 id="v6ModalTitle">Evidencia</h3>
+          <div id="v6ModalImage" class="v6-modal-image"></div>
+          <div id="v6ModalDescription" class="v6-modal-description"></div>
+          <button type="button" class="v6-secondary" data-v6-close>Guardar evidencia y volver</button>
+        </div>
+      </div>
+    </section>
+
     <section class="screen" id="roulette">
       <div class="topbar">
         <button class="ghost-btn" id="backHomeFromRoulette">← Inicio</button>
@@ -731,5 +885,6 @@ Pizza</textarea>
   <script src="js/chapter2.js?v=20260829-finalfix"></script>
   <script src="js/chapter3.js?v=20260829-4"></script>
   <script src="js/chapter5.js?v=20261027-1"></script>
+  <script src="js/chapter6.js?v=20261125-3"></script>
 </body>
 </html>
