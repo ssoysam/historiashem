@@ -59,7 +59,7 @@
             </span>
           </button>
 
-          <button type="button" class="chapter-card chapter-card-art" id="openChapterFour" onclick="openArtChapter(event)">
+          <button type="button" class="chapter-card chapter-card-art" id="openChapterFour">
             <span class="chapter-number">IV</span>
             <span class="chapter-info">
               <span class="chapter-title">Capítulo IV</span>
@@ -866,22 +866,10 @@ Pizza</textarea>
 
   </main>
 
-  <script>
-    function openArtChapter(event) {
-      if (event) { event.preventDefault(); event.stopPropagation(); }
-      var home = document.getElementById('home');
-      var chapter4 = document.getElementById('chapter4');
-      if (!chapter4) return;
-      if (typeof resetChapterFour === 'function') resetChapterFour();
-      if (home) { home.classList.remove('active'); home.style.opacity = ''; }
-      chapter4.classList.add('active');
-      chapter4.style.opacity = '1';
-      window.scrollTo(0, 0);
-    }
-  </script>
-  <script src="js/app.js?v=20260928-3"></script>
+
+  <script src="js/app.js?v=20261125-ivfix"></script>
   <script src="js/roulette.js"></script>
-  <script src="js/chapter4.js?v=20260928-v4"></script>
+  <script src="js/chapter4.js?v=20261125-ivfix"></script>
   <script src="js/chapter2.js?v=20260829-finalfix"></script>
   <script src="js/chapter3.js?v=20260829-4"></script>
   <script src="js/chapter5.js?v=20261027-1"></script>

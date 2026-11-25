@@ -74,7 +74,9 @@ openChapterThree?.addEventListener("click", () => {
 });
 
 openChapterFour?.addEventListener("click", () => {
-  if (typeof resetChapterFour === "function") resetChapterFour();
+  if (typeof window.resetChapterFour === "function") {
+    try { window.resetChapterFour(); } catch (error) { console.error("Capítulo IV:", error); }
+  }
   goToScreen(screens.home, screens.chapter4);
 });
 
@@ -106,7 +108,9 @@ backHomeFromChapterThree?.addEventListener("click", () => {
 });
 
 backHomeFromChapterFour?.addEventListener("click", () => {
-  if (typeof resetChapterFour === "function") resetChapterFour();
+  if (typeof window.resetChapterFour === "function") {
+    try { window.resetChapterFour(); } catch (error) { console.error("Capítulo IV:", error); }
+  }
   goToScreen(screens.chapter4, screens.home);
 });
 

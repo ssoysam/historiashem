@@ -1,3 +1,4 @@
+(()=>{
 const artViews=[...document.querySelectorAll('#chapter4 .art-view')];
 const artTransition=document.getElementById('artTransition');
 const artMap={lobby:'artLobby',gallery:'artGallery',studio:'artStudioRoom',restore:'artRestoreRoom',styles:'artStylesRoom',perspective:'artPerspectiveRoom',final:'artFinalRoom',letter:'artLetterRoom'};
@@ -57,4 +58,6 @@ finalFrame?.addEventListener('click',()=>{finalZoom=Math.min(3,finalZoom+1);fina
 // V4 — guards for touch interactions on phones
 ['pointerup','pointercancel'].forEach(type=>window.addEventListener(type,()=>{brushing=false;drawing=false;restoring=false;stageDrag=false},{passive:true}));
 // If a modal is open, only the modal should consume the gesture; closing restores normal page scroll.
-if(artModal){artModal.addEventListener('touchmove',()=>{}, {passive:true});}
+if(modal){modal.addEventListener('touchmove',()=>{}, {passive:true});}
+
+})();
